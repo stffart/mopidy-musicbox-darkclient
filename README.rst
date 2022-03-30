@@ -2,39 +2,25 @@
 Mopidy-MusicBox-Webclient
 *************************
 
-.. image:: https://img.shields.io/pypi/v/Mopidy-MusicBox-Webclient.svg
-    :target: https://pypi.org/project/Mopidy-MusicBox-Webclient/
-    :alt: Latest PyPI version
+Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially 
+written for Mopidy
 
-.. image:: https://img.shields.io/circleci/project/pimusicbox/mopidy-musicbox-webclient/develop.svg
-    :target: https://circleci.com/gh/pimusicbox/mopidy-musicbox-webclient
-    :alt: CircleCI build status
+This is modified version to work with YandexMusic backend (https://github.com/stffart/mopidy-yandexmusic)
 
-.. image:: https://img.shields.io/codecov/c/github/pimusicbox/mopidy-musicbox-webclient/develop.svg
-    :target: https://codecov.io/gh/pimusicbox/mopidy-musicbox-webclient
-    :alt: Test coverage
-
-.. image:: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
-    :target: http://standardjs.com/
-    :alt: JavaScript Standard Style
-
-Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially written for
-`Mopidy <http://www.mopidy.com/>`_.
 
 Features
 ========
 
 - Responsive design that works equally well on desktop and mobile browsers.
-- Browse content provided by any Mopidy backend extension.
+- Browse content provided by Yandex Music backend extension.
 - Add one or more tracks or entire albums to the queue.
-- Save the current queue to an easily accessible playlist.
-- Search for tracks, albums, or artists from specific backends or all of Mopidy.
-- Shows detailed track and album information during playback, with album cover retrieval from Last.fm.
+- Search for tracks, albums, or artists.
+- Shows detailed track and album information in playlists and queue with album covers.
+- Like tracks on YandexMusic
 - Support for all of the Mopidy playback controls (consume mode, repeat, shuffle, etc.)
-- Deep integration with, and additional features for, the `Pi MusicBox <http://www.pimusicbox.com/>`_.
 - Fullscreen mode.
 
-.. image:: https://github.com/pimusicbox/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
+.. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
     :width: 1312
     :height: 723
 
