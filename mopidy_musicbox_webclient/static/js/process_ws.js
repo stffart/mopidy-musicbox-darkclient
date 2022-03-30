@@ -110,8 +110,19 @@ function processBrowseDir (resultArr) {
 
             index++
         } else {
-            html += '<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">' +
-                    '<h1><i class="' + getMediaClass(resultArr[i]) + '"></i> ' + resultArr[i].name + '</h1></a></li>'
+           var image = ''
+           if (resultArr[i].artwork != undefined)
+               image = 'http://'+resultArr[i].artwork.replace('%%','50x50')
+           var desc = ''
+           if (resultArr[i].description != undefined)
+               desc = resultArr[i].description
+
+            html += '<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">'
+            html += '<div class="songrender"><img width=50 src="'+image+'"></img><div class="songtext"><strong>'+resultArr[i].name+'</strong><span>'+desc+'</span>'
+            html += '</div></div></a></li>'
+
+//            html += '<img src="'+ image +'" ></img>'+'<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">' +
+//                    '<h1> ' + resultArr[i].name + '</h1></a></li>'
         }
     }
 
@@ -169,9 +180,13 @@ function processGetPlaylists (resultArr) {
         if (isSpotifyStarredPlaylist(resultArr[i])) {
             starred = li_html + '&#9733; Spotify Starred Tracks</a></li>' + tmp
         } else if (isFavouritesPlaylist(resultArr[i])) {
-            favourites = li_html + '&hearts; Musicbox Favourites</a></li>'
+            //favourites = li_html + '&hearts; Musicbox Favourites</a></li>'
         } else {
-            tmp = tmp + li_html + '<i class="' + getMediaClass(resultArr[i]) + '"></i> ' + resultArr[i].name + '</a></li>'
+            var image = "images/icons/musicbox32.png"
+            if (resultArr[i].artwork != undefined)
+               image = 'http://'+resultArr[i].artwork.replace('%%','50x50')
+
+            tmp = tmp + li_html + '<img width=50 class="playlistimg" src="'+image+'" ></img><span>'+ resultArr[i].name + '</span></a></li>'
         }
     }
     // Prepend the user's Spotify "Starred" playlist and favourites to the results. (like Spotify official client).

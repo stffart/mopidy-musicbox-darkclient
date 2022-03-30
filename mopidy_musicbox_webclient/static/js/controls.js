@@ -492,7 +492,17 @@
             mopidy.tracklist.shuffle()
             mopidy.playback.play()
         },
-
+        setLikeState(state) {
+          isliked = state
+          if(state)
+            $('#btlike >i').removeClass('fa-heart-o').addClass('fa-heart')
+          else $('#btlike >i').removeClass('fa-heart').addClass('fa-heart-o')
+        },
+        doLike: function() {
+            mopidy.playlists.create({'name': 'liked:'+!isliked+':'+songdata.track.uri, 'uri_scheme': 'yandexmusic'})
+            updateLikeIcons(songdata.track.uri, songdata.tlid, !isliked)
+            controls.setLikeState(!isliked)
+        },
         /* Toggle state of play button */
         setPlayState: function (nwplay) {
             if (nwplay) {
@@ -668,15 +678,19 @@
             if (!uri && service) {
                 nwuri = service + ':' + nwuri
             }
-            toast('Playing...')
-            // stop directly, for user feedback
-            mopidy.playback.stop()
-            // hide ios/android keyboard
-            document.activeElement.blur()
-            controls.clearQueue()
-            $('input').blur()
-            mopidy.tracklist.add({'uris': [nwuri]})
-            mopidy.playback.play()
+            if (isServiceUri(nwuri) || isStreamUri(nwuri) || validUri(nwuri)) {
+                toast('Playing...')
+                // stop directly, for user feedback
+                mopidy.playback.stop()
+                // hide ios/android keyboard
+                document.activeElement.blur()
+                controls.clearQueue()
+                $('input').blur()
+                mopidy.tracklist.add({'uris': [nwuri]})
+                mopidy.playback.play()
+            } else {
+                toast('No valid url!')
+            }
             return false
         },
 

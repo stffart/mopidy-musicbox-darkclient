@@ -9,6 +9,7 @@ var syncedProgressTimer
 
 // values for controls
 var play = false
+var isliked = false
 var random
 var repeat
 var consume
@@ -243,6 +244,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
     var tlidParameter = ''
     var onClick = ''
     var html = ''
+    console.log(track);
     track.name = validateTrackName(track, currentIndex)
     // Streams
     if (track.length === -1) {
@@ -263,12 +265,18 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
         html += '<a href="#" class="moreBtn" onclick="return popupTracks(event, \'' + uri + '\',\'' + track.uri + tlidParameter + '\');">' +
         '<i class="fa fa-play-circle-o"></i></a>'
     }
-    html += '<a href="#" onclick="' + onClick + '"><h1><i class="' + getMediaClass(track) + '"></i> ' + track.name + '</h1>'
+    var image = ""
+    if (track.artwork != undefined)
+      image = 'http://'+track.artwork.replace('%%','50x50')
+    var like = ""
+    if (track.like)
+      like = '<i class="like fa fa-heart" ></i>'
+    html += '<a href="#" onclick="' + onClick + '"><div class="songrender"><img src="' + image + '"></img><div class="songtext"><h1>' + track.name + like +'</h1><span>'
 
-    if (listLength === 1 || (!hasSameAlbum(previousTrack, track) && !hasSameAlbum(track, nextTrack))) {
+    //if (listLength === 1 || (!hasSameAlbum(previousTrack, track) && !hasSameAlbum(track, nextTrack))) {
         html += renderSongLiAlbumInfo(track)
-    }
-    html += '</a></li>'
+    //}
+    html += '</span></div></div></a></li>'
     return html
 }
 
@@ -280,7 +288,7 @@ function renderSongLiAlbumInfo (track, target) {
     }
     if (typeof target !== 'undefined' && target.length > 0) {
         target = getjQueryID(target, track.uri, true)
-        $(target).children('a').eq(1).append(html)
+        //$(target).children('a').eq(1).append(html)
     }
     return html
 }

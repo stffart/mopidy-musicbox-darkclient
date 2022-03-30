@@ -131,14 +131,18 @@
 
             // Artist results
             var child = ''
-            var template = '<li><a href="#" onclick="return library.showArtist(this.id, mopidy)" id={id}><i class="{class}"></i> <strong>{name}</strong></a></li>'
+            var template = '<li><a href="#" onclick="return library.showArtist(this.id, mopidy)" id={id}>'
+            template += '<div class="songrender"><img src="{image}"></img><div class="songtext"><strong>{name}</strong><span>Исполнитель</span>'
+            template += '</div></div></a></li>'
+
             var tokens
 
             for (i = 0; i < results.artists.length; i++) {
                 tokens = {
                     'id': results.artists[i].uri,
                     'name': results.artists[i].name,
-                    'class': getMediaClass(results.artists[i])
+                    'class': getMediaClass(results.artists[i]),
+                    'image': 'http://'+results.artists[i].artwork.replace('%%','50x50')
                 }
 
                 // Add 'Show all' item after a certain number of hits.
@@ -155,10 +159,12 @@
 
             // Album results
             child = ''
+
+
             template = '<li><a href="#" onclick="return library.showAlbum(this.id, mopidy)" id="{albumId}">'
-            template += '<h5 data-role="heading"><i class="{class}"></i> {albumName}</h5>'
-            template += '<p data-role="desc">{artistName}</p>'
-            template += '</a></li>'
+            template += '<div class="songrender"><img src="{image}"></img><div class="songtext"><h5 data-role="heading">{albumName}</h5>'
+            template += '<span>{artistName}</span>'
+            template += '</div></div></a></li>'
 
             for (i = 0; i < results.albums.length; i++) {
                 tokens = {
@@ -166,7 +172,8 @@
                     'albumName': results.albums[i].name,
                     'artistName': '',
                     'albumYear': results.albums[i].date,
-                    'class': getMediaClass(results.albums[i])
+                    'class': getMediaClass(results.albums[i]),
+                    'image': 'http://'+results.albums[i].artwork.replace('%%','50x50')
                 }
                 if (results.albums[i].artists) {
                     for (j = 0; j < results.albums[i].artists.length; j++) {
@@ -230,7 +237,7 @@
         },
 
         getCurrentPlaylist: function () {
-            mopidy.tracklist.getTlTracks().then(processCurrentPlaylist, console.error)
+              mopidy.tracklist.getTlTracks().then(processCurrentPlaylist, console.error)
         },
 
         /** ******************************************************

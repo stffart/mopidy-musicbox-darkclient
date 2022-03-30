@@ -80,6 +80,7 @@ function setSongInfo (data) {
         data.track.name = decodeURI(name[name.length - 1])
     }
 
+    controls.setLikeState(data.track.like);
     updatePlayIcons(data.track.uri, data.tlid, controls.getIconForAction())
 
     if (validUri(data.track.name)) {
@@ -642,6 +643,67 @@ function updatePlayIcons (uri, tlid, popupMenuIcon) {
         })
     }
 }
+
+
+
+function updateLikeIcons (uri, tlid, liked) {
+    // Update styles of listviews
+    if (arguments.length < 3) {
+        throw new Error('Missing parameters for "updatePlayIcons" function call.')
+    }
+    var listviews = [PLAYLIST_TABLE, SEARCH_TRACK_TABLE, ARTIST_TABLE, ALBUM_TABLE, BROWSE_TABLE]
+    var target = CURRENT_PLAYLIST_TABLE.substr(1)
+    if (uri && typeof tlid === 'number' && tlid >= 0) {
+        $(CURRENT_PLAYLIST_TABLE).children('li.song.albumli').each(function () {
+            var eachTlid = $(this).attr('tlid')
+            if (typeof eachTlid !== 'undefined') {
+                eachTlid = parseInt(eachTlid)
+            }
+            if (this.id === getjQueryID(target, uri) && eachTlid === tlid) {
+                var songHeader = $(this).find('h1')
+                if (songHeader.length > 0) {
+                   var hasLike = songHeader[0].childNodes.length-1;
+                   if (hasLike && !liked) {
+                        songHeader[0].childNodes[1].remove()
+                   }
+                   if (!hasLike && liked) {
+                        var heart = document.createElement("i")
+                        heart.classList.add('like')
+                        heart.classList.add('fa')
+                        heart.classList.add('fa-heart')
+                        songHeader[0].appendChild(heart)
+                   }
+                }
+            }
+        })
+    }
+
+   for (var i = 0; i < listviews.length; i++) {
+        target = listviews[i].substr(1)
+        $(listviews[i]).children('li.song.albumli').each(function () {
+            if (uri) {
+                if (this.id === getjQueryID(target, uri)) {
+                   var songHeader = $(this).find('h1')
+                   if (songHeader.length > 0) {
+                     var hasLike = songHeader[0].childNodes.length-1;
+                     if (hasLike && !liked) {
+                        songHeader[0].childNodes[1].remove()
+                     }
+                     if (!hasLike && liked) {
+                        var heart = document.createElement("i")
+                        heart.classList.add('like')
+                        heart.classList.add('fa')
+                        heart.classList.add('fa-heart')
+                        songHeader[0].appendChild(heart)
+                     }
+                   }
+                }
+            }
+        })
+    }
+
+}
+
 
 function updateDocumentTitle (headline) {
     headline = headline || $('#contentHeadline').text()

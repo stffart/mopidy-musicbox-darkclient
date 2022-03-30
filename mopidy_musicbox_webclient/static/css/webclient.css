@@ -234,6 +234,72 @@ span.hostInfo {
 /***************
  *  listviews  *
  ***************/
+#playlisttracks li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
+#currenttable li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
+#browsetable li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
+#trackresulttable li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
+#albumstable li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
+#artiststable li a {
+    color: #555 !important;
+    font-size: 80% !important;
+    display: block;
+    padding: 2px;
+    padding-right: 4px;
+    padding-left: 4px;
+    margin-left: 35px;
+
+}
+
 .table li a {
     color: #555 !important;
     font-size: 80% !important;
@@ -241,11 +307,11 @@ span.hostInfo {
     padding: 2px;
     padding-right: 4px;
     padding-left: 4px;
+
 }
 
 .table li {
     background-color: #F8F8F5;
-    border: 1px solid  #CECECE;
     border-bottom: 0;
     padding: 0;
 }
@@ -338,15 +404,15 @@ span.hostInfo {
 }
 
 .currenttrack2 {
-    background-image: url('../images/icons/play_alt_12x12.png');
+    background-image: url('../images/icons/play_alt_16x16.png');
     background-repeat: no-repeat;
-    background-position: 4px 51%;
+    background-position: 11px 51%;
 }
 .currenttrack {
     background-image: url('../images/icons/play_alt_16x16.png');
     background-repeat: no-repeat;
     background-color: #eee;
-    background-position: 4px 50%;
+    background-position: 11px 50%;
 }
 
 .currenttrack2 a {
@@ -361,11 +427,13 @@ span.hostInfo {
     padding: 15px 18px 12px 22px;
     display: inline-block;
     line-height: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .moreBtn i {
     color: #ddd;
-    font-size: initial;
+    font-size: 20px;
 }
 
 .infoBtn {
@@ -601,9 +669,9 @@ a {
 }
 
 .playicon {
-    width: 10%;
-    float: right;
-    text-align: right;
+    width: 90px;
+    float: left;
+    text-align: center;
 }
 
 #btplay {
@@ -612,7 +680,7 @@ a {
 
 .songinfo {
     height: 100%;
-    width: 90%;
+    width: 70%;
     float: left;
 }
 
@@ -715,4 +783,37 @@ input[type=text] {
     -ms-user-select: text;
     -o-user-select: text;
     user-select: text;
+}
+
+.songrender {
+  position: relative;
+}
+
+.songrender img {
+  display: inline-block;
+}
+
+.songtext {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.songtext span {
+  display: block;
+  font-size: 11px;
+}
+
+.playlistimg {
+  display: inline-block;
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.playbackcontrolsext {
+  float: left;
+  margin-right: 50px;
+}
+
+.like {
+  margin-left: 5px;
 }
