@@ -22,7 +22,7 @@ Features
 
 .. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
     :width: 1312
-    :height: 723
+    :height: 600
 
 Dependencies
 ============
