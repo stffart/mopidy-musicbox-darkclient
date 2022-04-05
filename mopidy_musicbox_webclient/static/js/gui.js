@@ -224,6 +224,16 @@ function showAlbumPopup (popupId) {
  * initialize sockets *
  **********************/
 
+function findElementYPosition(obj) {
+    var curtop = 0;
+    if (obj.offsetParent) {
+        do {
+            curtop += obj.offsetTop;
+        } while (obj = obj.offsetParent);
+    return [curtop];
+    }
+}
+
 function initSocketevents () {
     mopidy.on('state:online', function () {
         showOffline(false)
@@ -642,6 +652,12 @@ function updatePlayIcons (uri, tlid, popupMenuIcon) {
             }
         })
     }
+
+    var current = $(".currenttrack")[0]
+    if (current != undefined) {
+      var currentPos = findElementYPosition($(".currenttrack")[0])
+      window.scroll(0,currentPos-100)
+    }
 }
 
 
@@ -702,6 +718,14 @@ function updateLikeIcons (uri, tlid, liked) {
         })
     }
 
+    var likeButton = $('#btlike i')[0];
+    if(liked) {
+      likeButton.classList.remove("fa-heart-o")
+      likeButton.classList.add("fa-heart")
+    } else {
+      likeButton.classList.remove("fa-heart")
+      likeButton.classList.add("fa-heart-o")
+    }
 }
 
 
