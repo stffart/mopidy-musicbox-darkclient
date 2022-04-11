@@ -142,7 +142,7 @@
                     'id': results.artists[i].uri,
                     'name': results.artists[i].name,
                     'class': getMediaClass(results.artists[i]),
-                    'image': 'http://'+results.artists[i].artwork.replace('%%','50x50')
+                    'image': 'http://'+results.artists[i].artwork.replace('%1','50').replace('%2','50')
                 }
 
                 // Add 'Show all' item after a certain number of hits.
@@ -173,7 +173,7 @@
                     'artistName': '',
                     'albumYear': results.albums[i].date,
                     'class': getMediaClass(results.albums[i]),
-                    'image': 'http://'+results.albums[i].artwork.replace('%%','50x50')
+                    'image': 'http://'+results.albums[i].artwork.replace('%1','50').replace('%2','50')
                 }
                 if (results.albums[i].artists) {
                     for (j = 0; j < results.albums[i].artists.length; j++) {

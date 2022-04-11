@@ -244,7 +244,6 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
     var tlidParameter = ''
     var onClick = ''
     var html = ''
-    console.log(track);
     track.name = validateTrackName(track, currentIndex)
     // Streams
     if (track.length === -1) {
@@ -267,7 +266,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
     }
     var image = ""
     if (track.artwork != undefined)
-      image = 'http://'+track.artwork.replace('%%','50x50')
+      image = 'http://'+track.artwork.replace('%1','50').replace('%2','50')
     var like = ""
     if (track.like)
       like = '<i class="like fa fa-heart" ></i>'

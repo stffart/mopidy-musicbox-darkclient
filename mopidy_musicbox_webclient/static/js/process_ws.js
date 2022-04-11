@@ -112,7 +112,7 @@ function processBrowseDir (resultArr) {
         } else {
            var image = ''
            if (resultArr[i].artwork != undefined)
-               image = 'http://'+resultArr[i].artwork.replace('%%','50x50')
+               image = 'http://'+resultArr[i].artwork.replace('%1','50').replace('%2','50')
            var desc = ''
            if (resultArr[i].description != undefined)
                desc = resultArr[i].description
@@ -184,7 +184,7 @@ function processGetPlaylists (resultArr) {
         } else {
             var image = "images/icons/musicbox32.png"
             if (resultArr[i].artwork != undefined)
-               image = 'http://'+resultArr[i].artwork.replace('%%','50x50')
+               image = 'http://'+resultArr[i].artwork.replace('%1','50').replace('%2','50')
 
             tmp = tmp + li_html + '<img width=50 class="playlistimg" src="'+image+'" ></img><span>'+ resultArr[i].name + '</span></a></li>'
         }
