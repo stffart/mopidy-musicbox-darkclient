@@ -247,7 +247,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
     track.name = validateTrackName(track, currentIndex)
     // Streams
     if (track.length === -1) {
-        html += '<li class="albumli"><a href="#"><h1><i class="' + getMediaClass(track) + '"></i> ' + track.name + ' [Stream]</h1></a></li>'
+        html += '<li class="albumli"><a href="#"><div class="songname" ><i class="' + getMediaClass(track) + '"></i> ' + track.name + ' [Stream]</div></a></li>'
         return html
     }
 
@@ -270,7 +270,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
     var like = ""
     if (track.like)
       like = '<i class="like fa fa-heart" ></i>'
-    html += '<a href="#" onclick="' + onClick + '"><div class="songrender"><img src="' + image + '"></img><div class="songtext"><h1>' + track.name + like +'</h1><span>'
+    html += '<a href="#" onclick="' + onClick + '"><div class="songrender"><img src="' + image + '"></img><div class="songtext"><div class="songname" >' + track.name + like +'</div><span>'
 
     //if (listLength === 1 || (!hasSameAlbum(previousTrack, track) && !hasSameAlbum(track, nextTrack))) {
         html += renderSongLiAlbumInfo(track)
@@ -283,7 +283,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
 function renderSongLiAlbumInfo (track, target) {
     var html = renderSongLiTrackArtists(track)
     if (track.album && track.album.name) {
-        html += ' - <em>' + track.album.name + '</em></p>'
+        html += ' - ' + track.album.name + ' '
     }
     if (typeof target !== 'undefined' && target.length > 0) {
         target = getjQueryID(target, track.uri, true)
@@ -323,7 +323,7 @@ function renderSongLiDivider (previousTrack, track, nextTrack, target) {
         html +=
             '<li class="albumdivider"><a href="#" ' + showAlbum + '>' +
             '<img id="' + getjQueryID(target + '-cover', track.uri) + '" class="artistcover" width="30" height="30"/>' +
-            '<h1>' + track.album.name + '</h1><p>' +
+            '<div class="albumname" >' + track.album.name + '</div><p>' +
             renderSongLiTrackArtists(track) + '</p></a></li>'
         // The element ID to populate with an album cover.
         imageID = getjQueryID(target + '-cover', track.uri, true)

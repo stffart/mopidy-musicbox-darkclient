@@ -79,6 +79,7 @@ function processPlaystate (data) {
  * process results of a browse list
  *********************************************************/
 function processBrowseDir (resultArr) {
+    console.log(resultArr)
     $(BROWSE_TABLE).empty()
     if (browseStack.length > 0) {
         renderSongLiBackButton(resultArr, BROWSE_TABLE, 'return library.getBrowseDir();')
@@ -118,7 +119,9 @@ function processBrowseDir (resultArr) {
                desc = resultArr[i].description
 
             html += '<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">'
-            html += '<div class="songrender"><img width=50 src="'+image+'"></img><div class="songtext"><strong>'+resultArr[i].name+'</strong><span>'+desc+'</span>'
+            html += '<div class="songrender"><img width=50 src="'+image+'"></img><div class="songtext"><strong>'+resultArr[i].name+'</strong>'
+            if (desc != '')
+              html += '<span>'+desc+'</span>'
             html += '</div></div></a></li>'
 
 //            html += '<img src="'+ image +'" ></img>'+'<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">' +
