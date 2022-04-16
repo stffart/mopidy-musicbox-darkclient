@@ -330,7 +330,6 @@ span.hostInfo {
     padding-left: 4px;
     margin-bottom: 2px;
 }
-
 .table li {
     background-color: #212121;
     border-bottom: 0;
@@ -439,7 +438,11 @@ span.hostInfo {
 }
 
 .playlistactive {
-    background-color: #005662;
+    background-color: var(--p-cl-dark);
+}
+
+.table li a.playlistactive {
+    color: #121212 !important;
 }
 
 .artistcover {
@@ -739,7 +742,7 @@ a {
 .songinfo-text {
     text-align: left;
     line-height: 23px;
-    color: #121212;
+    color: #fbfbfb;
     overflow: hidden;
     padding: 7px;
     margin-left: 65px;

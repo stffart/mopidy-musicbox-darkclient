@@ -1,10 +1,16 @@
+/* 672731 */
+/*  --s-cl-dark: #98525a;
+  --s-cl: #cb8087;
+  --s-cl-light: #ffb0b7;
+
+*/
 :root {
   --p-cl-dark: #4f9a94;
   --p-cl: #80cbc4;
   --p-cl-light: #b2fef7;
-  --s-cl-dark: #98525a;
-  --s-cl: #cb8087;
-  --s-cl-light: #ffb0b7;
+  --s-cl-dark: #672731;
+  --s-cl: #98525a;
+  --s-cl-light: #cb8087;
 }
 
 @font-face {
@@ -315,8 +321,8 @@
 /* Active class used as the "on" state across all themes
 -----------------------------------------------------------------------------------------------------------*/
 .ui-btn-active {
-	border: 1px solid 		#00838f /*{global-active-border}*/;
-	background: 			#00838f /*{global-active-background-color}*/;
+	border: 1px solid 		var(--p-cl); /*{global-active-border}*/;
+	background: 			var(--p-cl); /*{global-active-background-color}*/;
 	font-weight: bold;
 	color: 					#ffffff /*{global-active-color}*/;
 	cursor: pointer;
@@ -2345,7 +2351,7 @@ ol.ui-listview .ui-li-jsnumbering:before { content: "" !important; } /* to avoid
 .ui-li-has-count .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-count, .ui-li-divider.ui-li-has-count { padding-right: 45px; }
 .ui-li-has-arrow .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-arrow { padding-right: 40px; }
 .ui-li-has-arrow.ui-li-has-count .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-arrow.ui-li-has-count { padding-right: 75px; }
-.ui-li-heading { font-size: 16px; font-weight: bold; display: block; margin: .6em 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
+.ui-li-heading {  font-weight: bold; display: block; margin: .6em 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .ui-li-desc { font-size: 12px; font-weight: normal; display: block; margin: -.5em 0 .6em; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 ol.ui-listview > .ui-li .ui-li-heading { display: inline-block; width: 100%; margin-left: -1.3em; text-indent: 1.3em; vertical-align: middle; }
 ol.ui-listview > .ui-li .ui-li-desc:not(.ui-li-aside) { text-indent: 1.55em; }
