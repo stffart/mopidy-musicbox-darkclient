@@ -39,7 +39,7 @@ function showSongInfo (data) {
             $('#modaldetail').html(artistsHtml)
         }
     }
-
+    $("#page")[0].style.removeProperty('padding-bottom')
     $('#infoname').html(name)
     if (!artistsText && data.stream) {
         $('#infodetail').html(data.track.name)
@@ -685,7 +685,7 @@ function updateLikeIcons (uri, tlid, liked) {
                    if (!hasLike && liked) {
                         var heart = document.createElement("i")
                         heart.classList.add('like')
-                        heart.classList.add('fa')
+                        heart.classList.add('fa-regular')
                         heart.classList.add('fa-heart')
                         songHeader[0].appendChild(heart)
                    }
@@ -708,7 +708,7 @@ function updateLikeIcons (uri, tlid, liked) {
                      if (!hasLike && liked) {
                         var heart = document.createElement("i")
                         heart.classList.add('like')
-                        heart.classList.add('fa')
+                        heart.classList.add('fa-regular')
                         heart.classList.add('fa-heart')
                         songHeader[0].appendChild(heart)
                      }
@@ -718,13 +718,14 @@ function updateLikeIcons (uri, tlid, liked) {
         })
     }
 
+   
     var likeButton = $('#btlike i')[0];
     if(liked) {
-      likeButton.classList.remove("fa-heart-o")
-      likeButton.classList.add("fa-heart")
+      likeButton.classList.add("fa-solid")
+      likeButton.classList.remove("fa-regular")
     } else {
-      likeButton.classList.remove("fa-heart")
-      likeButton.classList.add("fa-heart-o")
+      likeButton.classList.remove("fa-solid")
+      likeButton.classList.add("fa-regular")
     }
 }
 

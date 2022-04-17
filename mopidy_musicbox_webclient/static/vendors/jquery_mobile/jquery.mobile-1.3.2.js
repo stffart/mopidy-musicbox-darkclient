@@ -4078,7 +4078,7 @@ $.mobile.getMaxScrollForTransition = $.mobile.getMaxScrollForTransition || defau
 
 		height = ( typeof height === "number" )? height : getScreenHeight();
 		
-		aPage.css( "min-height", height - aPagePadT - aPagePadB - aPageBorderT - aPageBorderB );
+		aPage.css( "min-height", height - aPagePadT - aPagePadB - aPageBorderT - aPageBorderB - 20 );
 	};
 
 	//shared page enhancements
@@ -10265,12 +10265,12 @@ $( document ).bind( "pagecreate create", function( e ) {
 			_triggerRedraw: function() {
 				var paddingBottom = parseFloat( $( ".ui-page-active" ).css( "padding-bottom" ) );
 				//trigger page redraw to fix incorrectly positioned fixed elements
-				$( ".ui-page-active" ).css( "padding-bottom", ( paddingBottom + 1 ) +"px" );
+				//$( ".ui-page-active" ).css( "padding-bottom", ( paddingBottom + 1 ) +"px" );
 				//if the padding is reset with out a timeout the reposition will not occure.
 				//this is independant of JQM the browser seems to need the time to react.
-				setTimeout( function() {
-					$( ".ui-page-active" ).css( "padding-bottom", paddingBottom + "px" );
-				}, 0 );
+				//setTimeout( function() {
+				//	$( ".ui-page-active" ).css( "padding-bottom", paddingBottom + "px" );
+				//}, 0 );
 			},
 
 			destroy: function() {

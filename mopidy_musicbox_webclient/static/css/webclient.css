@@ -110,10 +110,21 @@
 /**headers and controls**/
 #headermenubtn {
     padding-top: 2px;
+    margin-top: 1px;
+    height: 28px;
+}
+
+#headersearchbtn  {
+    padding-top: 2px;
+    margin-top: 1px;
+    height: 28px;
 }
 
 #headersearchbtn span {
     font-size: 13px;
+    vertical-align: top;
+    display: inline;
+    line-height: 25px;
 }
 
 /******************
@@ -126,13 +137,16 @@
 
 .mainNav li div div div.ui-slider-track {
   background-color: var(--p-cl);
-  margin-right: 30px;
+  margin-right: 10px;
+  margin-left: 60px;
 }
 
 #slidercontainer {
-    margin-top: 7px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     margin-right: 10px;
+    position: absolute;
+    bottom: 5%;
+    width: 98%;    
 }
 
 #slidercontainer .ui-slider-track {
@@ -146,7 +160,7 @@
 
 /* Increase slider handle by 30%. */
 .ui-slider-track.ui-mini .ui-slider-handle {
-    height: 22px;
+    height: 20px;
     width: 22px;
     margin: -12px 0 0 -12px;
 }
@@ -159,18 +173,27 @@
  *  Volume Slider
  ***********************/
 #mutebt {
-    background-color: #cb8087;
+    background-color: var(--p-cl);
     color: #121212;
     float: left;   
-    margin-left: 0px;
-    margin-top: -3px;
-    font-size: 150%;
-    padding: 6px;
+    margin-left: 3px;
+    font-size: 120%;
+    padding: 7px;
+    width: 23px;
+    height: 23px;
     border-radius: 5px;
+    border: 2px var(--p-cl-dark);
+    margin-top: -5px;
+    line-height: 23px;
 }
 
+#mutebt.fa-volume-mute {
+  background-color: var(--s-cl-light);
+  color: #000000;
+}
 #mutebt:hover {
-   background-color: #ffb0b7;
+   background-color: var(--s-cl-light);
+   color: #000000;
 }
 
 #volumeslider {
@@ -365,6 +388,7 @@ span.hostInfo {
     padding-right: 14px;
     padding-left: 14px;
     border: none !important;
+    font-size: 11pt;
 }
 
 .info-table td.label {
@@ -380,6 +404,10 @@ span.hostInfo {
     border: none;
     font-size: 1em;
     width: 100%;
+    padding: 5px;
+    border-radius: 4px;
+    border-color: var(--p-cl);
+    font-size: 10pt;
 }
 
 .albumdivider h1, .table li h1 {
@@ -594,6 +622,13 @@ li.currenttrack2 {
     max-width: 90%;
     max-height: 90%;
 }
+
+
+img[src="images/default_cover.png"] {
+    filter: invert(1);
+}
+
+
 
 /* Override to make buttons more visible in popups.*/
 #popupTracks .ui-btn-up-c,
@@ -814,6 +849,7 @@ a {
     #nowPlayingpane #slidercontainer {
         margin-left: -5px;
         margin-right: -5px;
+        
     }
 
     .nowPlayingControls{
@@ -882,7 +918,7 @@ input[type=text] {
 
 .playbackcontrolsext {
   float: left;
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .like {
@@ -907,7 +943,7 @@ h4 {
   color: #cb8087 !important;
 }
 
-.fa-heart {
+.songname .fa-heart {
   color: #cb8087;
   margin-left: 10px;
 }

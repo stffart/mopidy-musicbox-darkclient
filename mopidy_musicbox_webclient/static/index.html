@@ -32,7 +32,10 @@
     <meta name="author" content="Wouter van Wijk" />
     <meta name="copyright" content="(c) 2012-2016 Wouter van Wijk" />
     <link rel="stylesheet" type="text/css" href="css/webclient.css" />
+<!--
     <link rel="stylesheet" type="text/css" href="vendors/font_awesome/css/font-awesome.min.css" />
+-->
+    <link rel="stylesheet" type="text/css" href="vendors/font_awesome6/css/all.css" />
 
 </head>
 
@@ -71,7 +74,7 @@
         </li>
         <li id="navAlarmClock" data-icon="false">
                 <a href="/alarmclock/">
-                <span class="navtxt"> Alarm Clock </span><i class="fa fa-clock-o"></i></a>
+                <span class="navtxt"> Alarm Clock </span><i class="fa fa-clock"></i></a>
         </li>
         <li id="navToggleFullscreen" data-icon="false">
                 <a href="#">
@@ -311,7 +314,7 @@
         </a>
         <a id="homeAlarmClock" href="/alarmclock/">
             <div class="ui-block-a">
-                <i class="fa fa-clock-o"></i>
+                <i class="fa fa-clock"></i>
                 <h4>Alarm Clock</h4>
             </div>
         </a>
@@ -404,7 +407,7 @@
                     <i class="fa fa-plus"></i>
                 </button>
                 <button class="btn" type="button" title="Save queue to playlist" onclick="return controls.showSavePopup();">
-                    <i class="fa fa-bookmark-o"></i>
+                    <i class="fa fa-bookmark"></i>
                 </button>
                 <button class="btn" type="button" title="Clear queue" onclick="return controls.clearQueue();">
                     <i class="fa fa-times"></i>
@@ -514,7 +517,7 @@
     <div class="footerControls">
         <div class="playicon">
             <a href="#" onclick="controls.doPlay(); return false"><span id="btplay" title="Play"><i class="fa fa-play"></i></span></a>
-            <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa fa-heart-o"></i></span></a>
+            <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
         </div>
         <div class="songinfo" id="songinfo">
             <a href="#"><div style="float: left"><img id="infocover" src="images/default_cover.png" alt="Album cover"/></div></a>
@@ -532,9 +535,9 @@
                 <a href="#" onclick="controls.doRandom(); return false"><span id="randombt" title="Random"><i class="fa fa-random"></i></span></a>
                 <a href="#" onclick="controls.doRepeat(); return false"><span id="repeatbt" title="Repeat"><i class="fa fa-repeat"></i></span></a>
                 <a href="#" onclick="controls.doConsume(); return false"><span id="consumebt" title="Consume"><i class="fa fa-cutlery"></i></span></a>
-                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" title="Single"><i class="fa fa-dot-circle-o"></i></span></a>
+                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" title="Single"><i class="fa-regular fa-dot-circle"></i></span></a>
                 <a href="#" onclick="controls.doShuffle(); return false"><span id="shufflebt" title="Shuffle"><i class="fa fa-arrows-v"></i></span></a>
-                <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa fa-heart-o"></i></span></a>
+                <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
             </div>
 
             <div style="float: left;" class="playbackcontrolssimp" >

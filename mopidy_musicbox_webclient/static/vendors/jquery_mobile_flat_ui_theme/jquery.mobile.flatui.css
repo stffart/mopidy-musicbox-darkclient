@@ -163,7 +163,7 @@
 .ui-body-a .ui-link{color:#2c3e50;font-weight:bold;}
 .ui-body-a .ui-link:visited,.ui-body-a .ui-link:hover,.ui-body-a .ui-link:active{color:#4e6d8d}
 .ui-body-a.ui-input-text{border:2px solid #eee;}
-.ui-body-a.ui-input-text.ui-focus{border:2px solid #4e6d8d;-webkit-transition:border linear .2s;-moz-transition:border linear .2s;-o-transition:border linear .2s;transition:border linear .2s}
+.ui-body-a.ui-input-text.ui-focus{border:2px solid var(--cl-p);-webkit-transition:border linear .2s;-moz-transition:border linear .2s;-o-transition:border linear .2s;transition:border linear .2s}
 .ui-btn-up-a{border:1px solid var(--p-cl-dark); background:var(--p-cl-dark);font-weight:bold;color:#000000;}
 .ui-btn-up-a:visited,.ui-btn-up-a a.ui-link-inherit{color:#333333}
 .ui-btn-hover-a{border:0px solid #4e6d8d;background:var(--p-cl); font-weight:bold;color:#000;}
@@ -781,7 +781,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-header > .ui-btn-icon-notext,
 .ui-header-fixed.ui-fixed-hidden > .ui-btn-icon-notext { top: 6px; }
 .ui-header-fixed > .ui-btn-icon-notext { top: 7px;}
-.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: center; font-size: 16px; display: block; margin: .6em 30% .8em; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
+.ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: center; font-size: 16px; display: block; margin-bottom: 11px; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
 .ui-footer .ui-title { margin: .6em 15px .8em; }
 /* content area*/
 .ui-content {  background-color: #121212; border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; padding-top:0px; }
@@ -2454,7 +2454,9 @@ input.ui-input-text.ui-slider-input {
 }
 .ui-slider-bg {
 	border: none;
-	height: 100%;
+	height: 10px;
+        border: 1px solid var(--s-cl);
+        z-index:-1;
 }
 /* High level of specificity to override button margins in grids */
 .ui-slider-track .ui-btn.ui-slider-handle,
@@ -2832,7 +2834,8 @@ div.ui-slider-switch.ui-mini {
 }
 /* content-wrap */
 .ui-panel-content-wrap {
-	position: relative;
+        position: absolute;
+        height: 90%;
 	left: 0;
 	min-height: inherit;
 	border: none;

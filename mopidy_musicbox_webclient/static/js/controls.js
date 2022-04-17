@@ -495,8 +495,8 @@
         setLikeState(state) {
           isliked = state
           if(state)
-            $('#btlike >i').removeClass('fa-heart-o').addClass('fa-heart')
-          else $('#btlike >i').removeClass('fa-heart').addClass('fa-heart-o')
+            $('#btlike >i').removeClass('fa-regular').addClass('fa-solid')
+          else $('#btlike >i').removeClass('fa-solid').addClass('fa-regular')
         },
         doLike: function() {
             mopidy.playlists.create({'name': 'liked:'+!isliked+':'+songdata.track.uri, 'uri_scheme': 'yandexmusic'})
@@ -649,7 +649,7 @@
             if (mute !== nwmute) {
                 mute = nwmute
                 if (mute) {
-                    $('#mutebt').attr('class', 'fa fa-volume-off')
+                    $('#mutebt').attr('class', 'fa fa-volume-mute')
                 } else {
                     $('#mutebt').attr('class', 'fa fa-volume-up')
                 }
