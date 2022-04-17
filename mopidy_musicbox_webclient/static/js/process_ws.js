@@ -118,8 +118,12 @@ function processBrowseDir (resultArr) {
            if (resultArr[i].description != undefined)
                desc = resultArr[i].description
 
+            if (desc == '')
+              className = "songtext-nodesc"
+            else
+              className = "songtext"
             html += '<li><a href="#" onclick="return library.getBrowseDir(this.id);" id="' + resultArr[i].uri + '">'
-            html += '<div class="songrender"><img width=50 src="'+image+'"></img><div class="songtext"><strong>'+resultArr[i].name+'</strong>'
+            html += '<div class="songrender"><img width=50 src="'+image+'"></img><div class="' + className + '">'+resultArr[i].name
             if (desc != '')
               html += '<span>'+desc+'</span>'
             html += '</div></div></a></li>'

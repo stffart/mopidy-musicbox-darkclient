@@ -557,9 +557,9 @@
          *************/
         setTracklistOption: function (name, new_value) {
             if (!new_value) {
-                $('#' + name + 'bt').attr('style', 'color:#ffb0b7')
+                $('#' + name + 'bt').attr('class', 'btswitch btoff')
             } else {
-                $('#' + name + 'bt').attr('style', 'color:#b2fef7')
+                $('#' + name + 'bt').attr('class', 'btswitch bton')
             }
             return new_value
         },

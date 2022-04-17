@@ -516,7 +516,8 @@
 <div data-role="footer" data-tap-toggle="false" data-position="fixed" id="normalFooter">
     <div class="footerControls">
         <div class="playicon">
-            <a href="#" onclick="controls.doPlay(); return false"><span id="btplay" title="Play"><i class="fa fa-play"></i></span></a>
+            <a href="#" onclick="controls.doNext(); return false"><span id="btnext" title="Next"><i class="fa fa-forward-step"></i></span></a>
+            <a href="#" onclick="controls.doPlay(); return false"><span id="btplay" title="Play"><i class="fa fa-next"></i></span></a>
             <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
         </div>
         <div class="songinfo" id="songinfo">
@@ -532,10 +533,10 @@
 <div data-role="footer" data-tap-toggle="false" data-position="fixed" id="nowPlayingFooter">
         <div class="footerControls" style="padding-left: 10px;">
             <div class="playbackcontrolsext" >
-                <a href="#" onclick="controls.doRandom(); return false"><span id="randombt" title="Random"><i class="fa fa-random"></i></span></a>
-                <a href="#" onclick="controls.doRepeat(); return false"><span id="repeatbt" title="Repeat"><i class="fa fa-repeat"></i></span></a>
-                <a href="#" onclick="controls.doConsume(); return false"><span id="consumebt" title="Consume"><i class="fa fa-cutlery"></i></span></a>
-                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" title="Single"><i class="fa-regular fa-dot-circle"></i></span></a>
+                <a href="#" onclick="controls.doRandom(); return false"><span id="randombt" class="btswitch btoff" title="Random"><i class="fa fa-random"></i></span></a>
+                <a href="#" onclick="controls.doRepeat(); return false"><span id="repeatbt" class="btswitch btoff" title="Repeat"><i class="fa fa-repeat"></i></span></a>
+                <a href="#" onclick="controls.doConsume(); return false"><span id="consumebt" class="btswitch btoff" title="Consume"><i class="fa fa-cutlery"></i></span></a>
+                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" class="btswitch btoff" title="Single"><i class="fa-regular fa-dot-circle"></i></span></a>
                 <a href="#" onclick="controls.doShuffle(); return false"><span id="shufflebt" title="Shuffle"><i class="fa fa-arrows-v"></i></span></a>
                 <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
             </div>

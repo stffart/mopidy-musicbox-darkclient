@@ -12,7 +12,23 @@
  * ipad landsc 64
  *    portr 48
  ****************************/
+@media (max-width:480px) {
+   .songname {
+      font-size: 10pt !important;
+   }
+  .songtext span {
+    max-width: 180px;
+   }
 
+  .songtext {
+    max-width: 180px;
+   }
+
+  .songtext-nodesc {
+    font-size: 10pt !important;
+    max-width: 180px;
+   }
+}
 @media all and (min-width: 961px) {
 
     /*playlists*/
@@ -144,9 +160,9 @@
 #slidercontainer {
     margin-bottom: 10px;
     margin-right: 10px;
-    position: absolute;
+    position: sticky;
     bottom: 5%;
-    width: 98%;    
+    width: 100%;    
 }
 
 #slidercontainer .ui-slider-track {
@@ -169,9 +185,14 @@
     display: none !important;
 }
 
+#btnext {
+  margin-right: 5px;
+}
+
 /************************
  *  Volume Slider
  ***********************/
+
 #mutebt {
     background-color: var(--p-cl);
     color: #121212;
@@ -586,6 +607,7 @@ li.currenttrack2 {
     position: relative;
     display: inline-block;
     padding-top: .5em;
+    margin-top: 10px;
 }
 
 .popupArtistLi,
@@ -759,7 +781,7 @@ a {
 }
 
 .playicon {
-    width: 90px;
+    width: 110px;
     float: left;
     text-align: center;
 }
@@ -893,16 +915,27 @@ input[type=text] {
 
 .songtext {
   display: inline-block;
-  margin-left: 12px;
+  margin-left: 18px;
   vertical-align: top;
   margin-top: 5px;
   color: #fbfbfb;
+  line-height: 20px;
 }
-
+.songtext-nodesc {
+  display: inline-block;
+  margin-left: 18px;
+  vertical-align: top;
+  margin-top: 5px;
+  color: #fbfbfb;
+  line-height: 40px;
+  font-size: 14pt;
+}
 .songname {
   font-size: 14pt;
   color: #fbfbfb;
 }
+
+
 .songtext span {
   display: block;
   font-size: 11px;
@@ -930,18 +963,22 @@ h4 {
   margin-right: 10px;
 }
 
-#singlebt:hover {
-  color: #cb8087 !important;
+.bton {
+  color: var(--p-cl);
 }
-#consumebt:hover {
-  color: #cb8087 !important;
+
+.bton:hover {
+  color: var(--p-cl-dark);
 }
-#repeatbt:hover {
-  color: #cb8087 !important;
+
+.btoff {
+  color: var(--s-cl-light);
 }
-#randombt:hover {
-  color: #cb8087 !important;
+
+.btoff:hover {
+  color: var(--s-cl);
 }
+
 
 .songname .fa-heart {
   color: #cb8087;

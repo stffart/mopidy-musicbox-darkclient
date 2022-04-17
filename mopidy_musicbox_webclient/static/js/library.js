@@ -132,7 +132,7 @@
             // Artist results
             var child = ''
             var template = '<li><a href="#" onclick="return library.showArtist(this.id, mopidy)" id={id}>'
-            template += '<div class="songrender"><img src="{image}"></img><div class="songtext"><strong>{name}</strong><span>Исполнитель</span>'
+            template += '<div class="songrender"><img src="{image}"></img><div class="songtext" class="artistname">{name}<span>Исполнитель</span>'
             template += '</div></div></a></li>'
 
             var tokens
