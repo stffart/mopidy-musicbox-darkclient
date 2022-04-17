@@ -567,7 +567,7 @@ input.ui-input-text.ui-slider-input {
 		background-position: 	-36px 50%;
 	}
 	.ui-icon-delete {
-		background-position: 	-72px 50%;
+		background-position: 	-73px -1px;
 	}
 	.ui-icon-arrow-r {
 		background-position: 	-108px 50%;
@@ -2104,7 +2104,12 @@ label.ui-submit { font-size: 16px; line-height: 1.4; font-weight: normal; margin
 	.ui-field-contain, .ui-mobile fieldset.ui-field-contain { border-width: 0; padding: 0; margin: 1em 0; }
 }
 .ui-select { display: block; position: relative; }
-.ui-select select { position: absolute; left: -9999px; top: -9999px; }
+.ui-select select { position: absolute; left: -9999px; top: -9999px; padding: 10px;   -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
+    text-indent: 5px;
+  }
 .ui-select .ui-btn { opacity: 1; }
 .ui-field-contain .ui-select .ui-btn { margin: 0; }
 /* Fixes #2588: When Windows Phone 7.5 (Mango) tries to calculate a numeric opacity for a select (including "inherit") without explicitly specifying an opacity on the parent to give it context, a bug appears where clicking elsewhere on the page after opening the select will open the select again. */
@@ -2866,6 +2871,7 @@ div.ui-slider-switch.ui-mini {
 	transition: transform 200ms ease;
 }
 /* hardware acceleration for smoother transitions on WebKit browsers */
+/*
 .ui-panel-animate.ui-panel:not(.ui-panel-display-reveal),
 .ui-panel-animate.ui-panel:not(.ui-panel-display-reveal) > div,
 .ui-panel-animate.ui-panel-closed.ui-panel-display-reveal > div,
@@ -2874,6 +2880,7 @@ div.ui-slider-switch.ui-mini {
 	-webkit-backface-visibility: hidden;
 	-webkit-transform: translate3d(0,0,0);
 }
+*/
 /* positioning: panel */
 /* panel left  */
 .ui-panel-position-left {

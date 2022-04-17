@@ -1,11 +1,11 @@
 import logging
 
-from mopidy_musicbox_webclient import Extension
+from mopidy_musicbox_darkclient import Extension
 
 logger = logging.getLogger(__name__)
 
 
-class Webclient:
+class DarkWebclient:
     def __init__(self, config):
         self.config = config
 

@@ -6,7 +6,7 @@ import urllib.parse
 
 import tornado.web
 
-import mopidy_musicbox_webclient.webclient as mmw
+import mopidy_musicbox_darkclient.webclient as mmw
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +28,7 @@ class StaticHandler(tornado.web.StaticFileHandler):
 class IndexHandler(tornado.web.RequestHandler):
     def initialize(self, config, path):
 
-        webclient = mmw.Webclient(config)
+        webclient = mmw.DarkWebclient(config)
 
         if webclient.is_music_box():
             program_name = "MusicBox"

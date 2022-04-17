@@ -5,14 +5,14 @@ import pkg_resources
 from mopidy import config, ext
 
 __version__ = pkg_resources.get_distribution(
-    "Mopidy-MusicBox-Webclient"
+    "Mopidy-MusicBox-Darkclient"
 ).version
 
 
 class Extension(ext.Extension):
 
-    dist_name = "Mopidy-MusicBox-Webclient"
-    ext_name = "musicbox_webclient"
+    dist_name = "Mopidy-MusicBox-Darkclient"
+    ext_name = "musicbox_darkclient"
     version = __version__
 
     def get_default_config(self):

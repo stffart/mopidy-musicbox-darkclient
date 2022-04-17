@@ -45,7 +45,7 @@ function showSongInfo (data) {
         $('#infodetail').html(data.track.name)
     } else if (artistsText.length) {
         if (albumText.length) {
-            $('#infodetail').html(albumText + ' - ' + artistsText)
+            $('#infodetail').html(artistsText + ' - ' + albumText)
         } else {
             $('#infodetail').html(artistsText)
         }

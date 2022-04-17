@@ -1,22 +1,21 @@
 *************************
-Mopidy-MusicBox-Webclient
+Mopidy-MusicBox-Darkclient
 *************************
 
 Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially 
 written for Mopidy
 
-This is modified version to work with YandexMusic backend (https://github.com/stffart/mopidy-yandexmusic)
-
+Darkclient is dark theme for MMW. Can be used as standalone Mopidy plugin without upstream MMW.
 
 Features
 ========
 
 - Responsive design that works equally well on desktop and mobile browsers.
-- Browse content provided by Yandex Music backend extension.
+- Browse content backend extension.
 - Add one or more tracks or entire albums to the queue.
 - Search for tracks, albums, or artists.
 - Shows detailed track and album information in playlists and queue with album covers.
-- Like tracks on YandexMusic
+- Artwork and Like extensions
 - Support for all of the Mopidy playback controls (consume mode, repeat, shuffle, etc.)
 - Fullscreen mode.
 
@@ -37,7 +36,7 @@ Installation
 
 Install by running::
 
-    sudo python3 -m pip install Mopidy-MusicBox-Webclient
+    sudo python3 -m pip install Mopidy-MusicBox-Darkclient
 
 Or, if available, install the Debian/Ubuntu package from
 `apt.mopidy.com <https://apt.mopidy.com/>`_.
@@ -48,7 +47,7 @@ Configuration
 
 MMW is shipped with default settings that should work straight out of the box for most users::
 
-    [musicbox_webclient]
+    [musicbox_darkclient]
     enabled = true
     musicbox = false
     websocket_host =
@@ -57,34 +56,25 @@ MMW is shipped with default settings that should work straight out of the box fo
 
 The following configuration values are available should you wish to customize your installation further:
 
-- ``musicbox_webclient/enabled``: If the MMW extension should be enabled or not. Defaults to ``true``.
+- ``musicbox_darkclient/enabled``: If the MMW extension should be enabled or not. Defaults to ``true``.
 
-- ``musicbox_webclient/musicbox``: Set this to ``true`` if you are connecting to a Mopidy instance running on a
+- ``musicbox_darkclient/musicbox``: Set this to ``true`` if you are connecting to a Mopidy instance running on a
   Pi Musicbox. Expands the MMW user interface to include system control/configuration functionality.
 
-- ``musicbox_webclient/websocket_host``: Optional setting to specify the target host for Mopidy websocket connections.
+- ``musicbox_darkclient/websocket_host``: Optional setting to specify the target host for Mopidy websocket connections.
 
-- ``musicbox_webclient/websocket_port``: Optional setting to specify the target port for Mopidy websocket connections.
+- ``musicbox_darkclient/websocket_port``: Optional setting to specify the target port for Mopidy websocket connections.
 
-- ``musicbox_webclient/on_track_click``: The action performed when clicking on a track. Valid options are: 
+- ``musicbox_darkclient/on_track_click``: The action performed when clicking on a track. Valid options are: 
   ``PLAY_ALL`` (default), ``PLAY_NOW``, ``PLAY_NEXT``, ``ADD_THIS_BOTTOM``, ``ADD_ALL_BOTTOM``, and ``DYNAMIC`` (repeats last action).
 
 Usage
 =====
 
-Enter the address of the Mopidy server that you are connecting to in your browser (e.g. http://localhost:6680/musicbox_webclient)
-
-
-Project resources
-=================
-
-- `Source code <https://github.com/pimusicbox/mopidy-musicbox-webclient>`_
-- `Issue tracker <https://github.com/pimusicbox/mopidy-musicbox-webclient/issues>`_
-- `Changelog <https://github.com/pimusicbox/mopidy-musicbox-webclient/blob/master/CHANGELOG.rst>`_
+Enter the address of the Mopidy server that you are connecting to in your browser (e.g. http://localhost:6680/musicbox_darkclient)
 
 Credits
 =======
 
 - Original author: `Wouter van Wijk <https://github.com/woutervanwijk>`__
-- Current maintainer: `Nick Steel <https://github.com/kingosticks>`__
 - `Contributors <https://github.com/pimusicbox/mopidy-musicbox-webclient/graphs/contributors>`_
