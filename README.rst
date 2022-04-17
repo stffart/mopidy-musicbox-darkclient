@@ -1,6 +1,6 @@
-*************************
+*****************************
 Mopidy-MusicBox-Darkclient
-*************************
+*****************************
 
 Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially 
 written for Mopidy
@@ -20,7 +20,10 @@ Features
 - Fullscreen mode.
 
 .. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
-
+   :height: 849 px
+   :width: 1524 px
+   :scale: 50 %
+   :align: center
 
 Dependencies
 ============
@@ -78,3 +81,4 @@ Credits
 
 - Original author: `Wouter van Wijk <https://github.com/woutervanwijk>`__
 - `Contributors <https://github.com/pimusicbox/mopidy-musicbox-webclient/graphs/contributors>`_
+
