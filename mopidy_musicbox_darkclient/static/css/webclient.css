@@ -171,7 +171,8 @@
 */    
     position: fixed;
     bottom: 70px;
-    width: 97%;    
+    width: 96%;
+    left: 2%;    
     min-width:200px;
 }
 
@@ -602,13 +603,15 @@ li.currenttrack2 {
     padding-left: 3px;
     padding-right: 3px;
     height: 100%;
-    vertical-align: middle;
+    vertical-align: top;
 }
 
 .footerControls #btplayNowPlaying {
     font-size: 42px;
     margin-left: 10px;
     margin-right: 10px;
+    position: relative;
+    display: inline-block;
 }
 
 /************
@@ -902,7 +905,8 @@ a {
     #nowPlayingpane #slidercontainer {
         margin-left: -5px;
         margin-right: -5px;
-        width: 90%;
+        width: 95%;
+        left: 4%;
     }
 
     .nowPlayingControls{

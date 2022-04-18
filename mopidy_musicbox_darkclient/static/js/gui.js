@@ -671,12 +671,9 @@ function updateLikeIcons (uri, tlid, liked) {
     var target = CURRENT_PLAYLIST_TABLE.substr(1)
     if (uri && typeof tlid === 'number' && tlid >= 0) {
         $(CURRENT_PLAYLIST_TABLE).children('li.song.albumli').each(function () {
-            var eachTlid = $(this).attr('tlid')
-            if (typeof eachTlid !== 'undefined') {
-                eachTlid = parseInt(eachTlid)
-            }
-            if (this.id === getjQueryID(target, uri) && eachTlid === tlid) {
-                var songHeader = $(this).find('h1')
+            var eachUri = $(this).attr('uri')
+            if (this.id === getjQueryID(target, uri) && eachUri === uri) {
+                var songHeader = $(this).find('.songname')
                 if (songHeader.length > 0) {
                    var hasLike = songHeader[0].childNodes.length-1;
                    if (hasLike && !liked) {
@@ -685,7 +682,7 @@ function updateLikeIcons (uri, tlid, liked) {
                    if (!hasLike && liked) {
                         var heart = document.createElement("i")
                         heart.classList.add('like')
-                        heart.classList.add('fa-regular')
+                        heart.classList.add('fa-solid')
                         heart.classList.add('fa-heart')
                         songHeader[0].appendChild(heart)
                    }
@@ -699,7 +696,7 @@ function updateLikeIcons (uri, tlid, liked) {
         $(listviews[i]).children('li.song.albumli').each(function () {
             if (uri) {
                 if (this.id === getjQueryID(target, uri)) {
-                   var songHeader = $(this).find('h1')
+                   var songHeader = $(this).find('.songname')
                    if (songHeader.length > 0) {
                      var hasLike = songHeader[0].childNodes.length-1;
                      if (hasLike && !liked) {
@@ -708,7 +705,7 @@ function updateLikeIcons (uri, tlid, liked) {
                      if (!hasLike && liked) {
                         var heart = document.createElement("i")
                         heart.classList.add('like')
-                        heart.classList.add('fa-regular')
+                        heart.classList.add('fa-solid')
                         heart.classList.add('fa-heart')
                         songHeader[0].appendChild(heart)
                      }

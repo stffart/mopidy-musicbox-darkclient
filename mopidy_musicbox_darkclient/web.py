@@ -9,6 +9,9 @@ import tornado.web
 import mopidy_musicbox_darkclient.webclient as mmw
 
 logger = logging.getLogger(__name__)
+import json
+import urllib.parse
+
 
 
 class StaticHandler(tornado.web.StaticFileHandler):
@@ -68,3 +71,35 @@ class IndexHandler(tornado.web.RequestHandler):
 
     def get_template_path(self):
         return self.__path
+
+class LikeHandler(tornado.web.RequestHandler):
+
+    def initialize(self, core):
+        self._core = core
+
+    def get(self, path):
+      logger.error(path)
+      if 'liked:' in path:
+        params = path.split(':')
+        liked = params[1]
+        uri_scheme = params[2]
+        track_id = params[4]
+        uri = f"{uri_scheme}:track:{track_id}"
+        logger.error(uri)
+        tl_tracks = self._core.tracklist.filter({"uri": [uri]}).get()
+        position = self._core.tracklist.index(tl_tracks[0]).get()
+        #replacing track in current playback with liked one
+        #mopidy has not method for this, so we need to delete old one, create new on the same position
+        if hasattr(tl_tracks[0].track,'switchLike'):
+          switched = tl_tracks[0].track.switchLike()
+          self._core.tracklist.remove({"tlid": [tl_tracks[0].tlid] })
+          self._core.tracklist.add(tracks=[switched],at_position=position)
+          tl_tracks = self._core.tracklist.filter({"uri": [uri]}).get()
+          #We need to call private method to set current track to replaced one
+          self._core._actor.playback._set_current_tl_track(tl_tracks[0])
+          self._core.playlists.create(path, uri_scheme).get()
+          self.write(json.dumps({'result':True,'message':'ok'}))
+        else:
+          self.write(json.dumps({'result':False,'message':'Not likable'}))
+      else:
+        self.write(json.dumps({'result':False,'message':'Not found'}))

@@ -499,9 +499,14 @@
           else $('#btlike >i').removeClass('fa-solid').addClass('fa-regular')
         },
         doLike: function() {
-            mopidy.playlists.create({'name': 'liked:'+!isliked+':'+songdata.track.uri, 'uri_scheme': 'yandexmusic'})
-            updateLikeIcons(songdata.track.uri, songdata.tlid, !isliked)
-            controls.setLikeState(!isliked)
+            var tlid = songdata.tlid;
+            $.getJSON( '/musicbox_darkclient/liked:'+!isliked+':'+songdata.track.uri, function(response) { 
+                if(response.result) {
+                  updateLikeIcons(songdata.track.uri, tlid, !isliked)
+                  controls.setLikeState(!isliked)
+                }
+            });
+            //mopidy.playlists.create({'name': 'liked:'+!isliked+':'+songdata.track.uri, 'uri_scheme': 'yandexmusic'})
         },
         /* Toggle state of play button */
         setPlayState: function (nwplay) {

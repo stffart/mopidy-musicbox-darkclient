@@ -784,7 +784,7 @@ div.ui-mobile-viewport { overflow-x: hidden; }
 .ui-header .ui-title, .ui-footer .ui-title { min-height: 1.1em; text-align: center; font-size: 16px; display: block; margin-bottom: 11px; padding: 0; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; outline: 0 !important; }
 .ui-footer .ui-title { margin: .6em 15px .8em; }
 /* content area*/
-.ui-content {  background-color: #121212; border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; padding-top:0px; }
+.ui-content {  background-color: #121212; border-width: 0; overflow: visible; overflow-x: hidden; padding: 15px; padding-top:0px; padding-bottom: 50px;}
 /* corner styling for dialogs and popups */
 .ui-corner-all > .ui-header:first-child,
 .ui-corner-all > .ui-content:first-child,

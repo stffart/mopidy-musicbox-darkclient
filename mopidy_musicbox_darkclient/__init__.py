@@ -43,11 +43,12 @@ class Extension(ext.Extension):
 
     def factory(self, config, core):
         from tornado.web import RedirectHandler
-        from .web import IndexHandler, StaticHandler
+        from .web import IndexHandler, StaticHandler, LikeHandler
 
         path = pathlib.Path(__file__).parent / "static"
         return [
             (r"/", RedirectHandler, {"url": "index.html"}),
             (r"/(index.html)", IndexHandler, {"config": config, "path": path}),
+            (r"/(liked:.*)", LikeHandler, {"core": core}),
             (r"/(.*)", StaticHandler, {"path": path}),
         ]

@@ -258,7 +258,7 @@ function renderSongLi (previousTrack, track, nextTrack, uri, tlid, target, curre
         onClick = 'return controls.playTracks(\'\', mopidy, \'' + track.uri + '\', \'' + uri + '\');'
     }
 
-    html += '<li class="song albumli" id="' + getjQueryID(target, track.uri) + '" tlid="' + tlid + '">'
+    html += '<li class="song albumli" id="' + getjQueryID(target, track.uri) + '" tlid="' + tlid + '" uri="' + track.uri + '">'
     if (isPlayable(track)) {
         // Show popup icon for audio files or 'tracks' of other scheme types
         html += '<a href="#" class="moreBtn" onclick="return popupTracks(event, \'' + uri + '\',\'' + track.uri + tlidParameter + '\');">' +
