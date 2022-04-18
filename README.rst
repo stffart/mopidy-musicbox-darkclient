@@ -20,9 +20,8 @@ Features
 - Fullscreen mode.
 
 .. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
-   :height: 849 px
-   :width: 1524 px
-   :scale: 50 %
+   :height: 425 px
+   :width: 762 px
    :align: center
 
 Dependencies
