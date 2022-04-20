@@ -87,11 +87,11 @@
         switch (this.syncState) {
             case SyncedProgressTimer.SYNC_STATE.NOT_SYNCED:
                 // Waiting for Mopidy to provide a target position.
-                this.positionNode.nodeValue = '(wait)'
+                this.positionNode.nodeValue = '...'
                 break
             case SyncedProgressTimer.SYNC_STATE.SYNCING:
                 // Busy seeking to new target position.
-                this.positionNode.nodeValue = '(sync)'
+                this.positionNode.nodeValue = '...'
                 break
             case SyncedProgressTimer.SYNC_STATE.SYNCED:
                 this._previousSyncPosition = position

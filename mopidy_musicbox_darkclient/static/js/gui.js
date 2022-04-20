@@ -234,6 +234,8 @@ function findElementYPosition(obj) {
     }
 }
 
+
+
 function initSocketevents () {
     mopidy.on('state:online', function () {
         showOffline(false)
@@ -243,6 +245,7 @@ function initSocketevents () {
         controls.getUriSchemes().then(function () {
             controls.showFavourites()
         })
+        initMasterApi()
         library.getBrowseDir()
         library.getSearchSchemes(searchBlacklist, mopidy)
         showLoading(false)

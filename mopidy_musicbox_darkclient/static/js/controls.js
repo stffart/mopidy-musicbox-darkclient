@@ -104,7 +104,6 @@
             $('#popupTracks').popup('close')
             $('#popupQueue').popup('close')
         },
-
         /* Getter function for 'action' variable. Also checks config settings and cookies if required. */
         getAction: function (action) {
             if (typeof action === 'undefined' || action.length === 0) {  // Action parameter not provided, use defaults

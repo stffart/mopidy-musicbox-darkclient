@@ -12,6 +12,19 @@
  * ipad landsc 64
  *    portr 48
  ****************************/
+
+@media (max-height: 800px) {
+  #albumCoverImg {
+    max-height: 340px !important;
+  }
+
+  #nowPlayingpane {
+    padding-top: 5px !important;
+  }
+
+}
+
+
 @media (max-width:480px) {
    .songname {
       font-size: 10pt !important;
@@ -29,10 +42,29 @@
     max-width: 150px;
    }
   .songinfo {
+     width: 60% !important;
      max-width: 250px;
+  }
+  #infoname {
+     font-size: 9pt !important;
+  }
+  .footerControls {
+    font-size: 23px !important;
   }
 
 }
+
+@media (max-width:320px) {
+  .songtext {
+    max-width: 120px;
+
+   }
+  #infoname {
+     font-size: 8pt !important;
+  }
+
+}
+
 @media all and (min-width: 961px) {
 
     /*playlists*/
@@ -253,7 +285,7 @@ span.hostInfo {
     background-color: #121212;
     padding-bottom: 0 !important;
     padding-top: 50px !important;
-    min-height: 92vh !important;
+    min-height: 91vh !important;
 }
 
 .ui-panel-content-wrap {
