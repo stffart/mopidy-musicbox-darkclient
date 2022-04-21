@@ -5,8 +5,8 @@
  */
 
 var mopidy
-var syncedProgressTimer
-
+var syncedProgressTimer = null
+var currentWebsocketUrl
 // values for controls
 var play = false
 var isliked = false

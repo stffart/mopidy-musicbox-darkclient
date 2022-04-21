@@ -29,7 +29,10 @@ function showSongInfo (data) {
     if (data.stream) {
         name = data.stream
     }
-    $('#modalname').html('<a href="#" onclick="return controls.showInfoPopup(\'' + data.track.uri + '\', \'\', mopidy);">' + name + '</span></a>')
+    if (name != undefined)
+      $('#modalname').html('<a href="#" onclick="return controls.showInfoPopup(\'' + data.track.uri + '\', \'\', mopidy);">' + name + '</span></a>')
+    else
+      $('#modalname').html('')
     if (!artistsHtml && data.stream) {
         $('#modaldetail').html(data.track.name)
     } else if (artistsHtml.length) {
@@ -38,6 +41,8 @@ function showSongInfo (data) {
         } else {
             $('#modaldetail').html(artistsHtml)
         }
+    } else {
+        $('#modaldetail').html('')
     }
     $("#page")[0].style.removeProperty('padding-bottom')
     $('#infoname').html(name)
@@ -49,6 +54,8 @@ function showSongInfo (data) {
         } else {
             $('#infodetail').html(artistsText)
         }
+    } else {
+        $('#infodetail').html('')
     }
 }
 
@@ -603,7 +610,7 @@ $(document).ready(function (event) {
     if (websocketUrl) {
         connectOptions['webSocketUrl'] = websocketUrl
     }
-
+    currentWebsocketUrl = websocketUrl
     mopidy = new Mopidy(connectOptions)
     // initialize events
     initSocketevents()

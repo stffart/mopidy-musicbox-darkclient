@@ -66,26 +66,6 @@
                 }
             }
         },
-
-        tryGetMasterDevices: function () {
-           $.getJSON('/mopidy_mopidy/masterapi/list', function(response) {
-             for (var device in response) {
-               console.log(device);
-               if ( response[device].active && !response[device].me ) {
-                  window.location.replace(response[device].url)
-               }
-             }
-           });
-           $.getJSON('/master/masterapi/list', function(response) {
-             for (var device in response) {
-               console.log(device);
-               if ( response[device].active && !response[device].me ) {
-                  window.location.replace(response[device].url)
-               }
-             }
-           });
-        },
-
         /** ******************************************************
          * process results of a search
          *********************************************************/
