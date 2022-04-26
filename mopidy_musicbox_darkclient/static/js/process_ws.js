@@ -10,9 +10,11 @@
  *********************************************************/
 function processCurrenttrack (data) {
     setSongInfo(data)
-    mopidy.playback.getStreamTitle().then(function (title) {
+    mopidy_connected().then(() => {
+      mopidy.playback.getStreamTitle().then(function (title) {
         setStreamTitle(title)
-    }, console.error)
+      }, console.error)
+    })
 }
 
 /** ******************************************************

@@ -396,14 +396,16 @@ function updateOptions () {
 
 // update everything as if reloaded
 function updateStatusOfAll () {
-    mopidy.playback.getCurrentTlTrack().then(processCurrenttrack, console.error)
-    mopidy.playback.getTimePosition().then(processCurrentposition, console.error)
-    mopidy.playback.getState().then(processPlaystate, console.error)
+    mopidy_connected().then(() => {
+      mopidy.playback.getCurrentTlTrack().then(processCurrenttrack, console.error)
+      mopidy.playback.getTimePosition().then(processCurrentposition, console.error)
+      mopidy.playback.getState().then(processPlaystate, console.error)
 
-    updateOptions()
+      updateOptions()
 
-    mopidy.mixer.getVolume().then(processVolume, console.error)
-    mopidy.mixer.getMute().then(processMute, console.error)
+      mopidy.mixer.getVolume().then(processVolume, console.error)
+      mopidy.mixer.getMute().then(processMute, console.error)
+   })
 }
 
 function locationHashChanged () {
@@ -470,6 +472,7 @@ function locationHashChanged () {
  * initialize software *
  ***********************/
 $(document).ready(function (event) {
+    setLocale()
     showOffline(true)
     // check for websockets
     if (!window.WebSocket) {
@@ -521,9 +524,9 @@ $(document).ready(function (event) {
     // event handlers for full screen mode
     $(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange, MSFullscreenChange', function (e) {
         if (isFullscreen()) {
-            document.getElementById('toggletxt').innerHTML = 'Exit Fullscreen'
+            document.getElementById('toggletxt').innerHTML = t('Exit Fullscreen')
         } else {
-            document.getElementById('toggletxt').innerHTML = 'Fullscreen'
+            document.getElementById('toggletxt').innerHTML = t('Fullscreen')
         }
     })
 

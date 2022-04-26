@@ -4,6 +4,9 @@
     <title>{{ title }}</title>
     <meta charset="utf-8">
 
+    <script type="text/javascript" src="locale/ru.js"></script>
+    <script type="text/javascript" src="js/i18n.js"></script>
+
     <script type="text/javascript" src="vendors/jquery/jquery-1.12.0.min.js"></script>
     <script type="text/javascript" src="vendors/jquery_cookie/jquery.cookie.js"></script>
     <script type="text/javascript" src="js/custom_scripting.js"></script>
@@ -40,59 +43,59 @@
 
 </head>
 
-<body data-websocket-url="{{ websocketUrl }}" data-is-musicbox="{{ isMusicBox }}" data-has-alarmclock="{{ hasAlarmClock }}" data-on-track-click="{{ onTrackClick }}" data-program-name="{{ programName }}" data-hostname="{{ hostname }}" data-title="{{ title }}">
+<body data-websocket-url="{{ websocketUrl }}" data-is-musicbox="{{ isMusicBox }}" data-has-alarmclock="{{ hasAlarmClock }}" data-on-track-click="{{ onTrackClick }}" data-program-name="{{ programName }}" data-hostname="{{ hostname }}" data-title="{{ title }}" data-locale="{{ locale }}">
 <div data-role="page" id="page" class="ui-responsive-panel" data-theme="c" data-title="{{ title }}">
 <div data-role="panel" id="panel" data-position="left" data-theme="a" data-display="reveal" data-position-fixed="true">
 
     <ul class="ui-listview mainNav" data-role="listview" data-theme="a">
         <li id="navhome" data-icon="false">
             <a href="#home" onclick="switchContent('home' ); return false;">
-                <span class="navtxt"> Home </span><i class="fa fa-home"></i></a>
+                <span class="navtxt"> {{ _("Home") }} </span><i class="fa fa-home"></i></a>
         </li>
         <li id="navnowPlaying" data-icon="false">
             <a href="#nowPlaying" onclick="switchContent('nowPlaying' ); return false;">
-                <span class="navtxt"> Now Playing </span><i class="fa fa-music"></i></a>
+                <span class="navtxt"> {{ _("Now Playing") }} </span><i class="fa fa-music"></i></a>
         </li>
         <li id="navcurrent" data-icon="false">
             <a href="#current" onclick="switchContent('current' ); return false;">
-                <span class="navtxt">Queue </span><i class="fa fa-bars"></i></a>
+                <span class="navtxt"> {{ _("Queue") }} </span><i class="fa fa-bars"></i></a>
         </li>
         <li id="navplaylists" data-icon="false">
             <a href="#playlists" onclick="switchContent('playlists' ); return false;">
-                <span class="navtxt"> Playlists </span><i class="fa  fa-star"></i></a>
+                <span class="navtxt"> {{ _("Playlists") }} </span><i class="fa  fa-star"></i></a>
         </li>
         <li id="navbrowse" data-icon="false">
             <a href="#browse" onclick="switchContent('browse' ); return false;">
-                <span class="navtxt"> Browse </span><i class="fa fa-folder"></i></a>
+                <span class="navtxt"> {{ _("Browse") }} </span><i class="fa fa-folder"></i></a>
         </li>
         <li id="navstream" data-icon="false">
             <a href="#stream" onclick="switchContent('stream' ); return false;">
-                <span class="navtxt">Streams </span><i class="fa fa-rss"></i></a>
+                <span class="navtxt"> {{ _("Streams") }} </span><i class="fa fa-rss"></i></a>
         </li>
         <li id="navsearch" data-icon="false">
             <a href="#search" onclick="switchContent('search' ); return false;">
-                <span class="navtxt">Search </span><i class="fa fa-search"></i></a>
+                <span class="navtxt"> {{ _("Search") }} </span><i class="fa fa-search"></i></a>
         </li>
         <li id="navAlarmClock" data-icon="false">
                 <a href="/alarmclock/">
-                <span class="navtxt"> Alarm Clock </span><i class="fa fa-clock"></i></a>
+                <span class="navtxt"> {{ _("Alarm Clock") }}</span><i class="fa fa-clock"></i></a>
         </li>
         <li id="navToggleFullscreen" data-icon="false">
                 <a href="#">
-                <span class="navtxt" id="toggletxt"> Fullscreen </span><i class="fa fa-desktop"></i></a>
+                <span class="navtxt" id="toggletxt"> {{ _("Fullscreen") }} </span><i class="fa fa-desktop"></i></a>
         </li>
         <li id="navSettings" data-icon="false">
                 <a href="/settings/">
-                <span class="navtxt"> Settings </span><i class="fa fa-cog"></i></a>
+                <span class="navtxt"> {{ _("Settings") }} </span><i class="fa fa-cog"></i></a>
         </li>
         <li id="navshutdown" data-icon="false">
             <a href="system.html">
-                <span class="navtxt">System </span><i class="fa fa-power-off"></i></a>
+                <span class="navtxt">{{ _("System") }}</span><i class="fa fa-power-off"></i></a>
         </li>
         <li data-icon="false">
             <div><!-- slider for volume -->
-                <a href="#" onclick="controls.doMute(); return false;"><span title="Toggle mute"><i id="mutebt" class="fa fa-volume-up"></i></span></a>
-                <label for="volumeslider" class="ui-hidden-accessible">Volume</label>
+                <a href="#" onclick="controls.doMute(); return false;"><span title="{{ _("Toggle mute") }}"><i id="mutebt" class="fa fa-volume-up"></i></span></a>
+                <label for="volumeslider" class="ui-hidden-accessible">{{ _("Volume") }}</label>
                 <input id="volumeslider" data-highlight="true" name="volumeslider" data-mini="true" type="range" min="0"
                        value="0" max="100"/>
             </div>
@@ -100,9 +103,9 @@
         <li data-icon="false">
             <div class="hostInfo">
                 {% if hostname == serverIP %}
-                    <span class="hostInfo">{{programName}} running on {{ hostname }}:{{ serverPort}}</span>
+                    <span class="hostInfo">{{programName}} {{ _("running on") }} {{ hostname }}:{{ serverPort}}</span>
                 {% else %}
-                    <span class="hostInfo">{{programName}} running on {{ hostname }} at {{ serverIP }}:{{ serverPort}}</span>
+                    <span class="hostInfo">{{programName}} {{ _("running on") }} {{ hostname }} {{ _("at") }} {{ serverIP }}:{{ serverPort}}</span>
                 {% end %}
             </div>
         </li>
@@ -126,7 +129,7 @@
 
 <div id="artistpopup" data-role="popup" data-theme="c">
     <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext"
-       class="ui-btn-right">Close</a>
+       class="ui-btn-right">{{ _("Close") }}</a>
     <h4 id="artistpopupname">&nbsp;</h4>
     <a href="#" onclick="$('#artistpopup').popup('close');"><img id="artistpopupimage" src="" alt="Album artist"/></a>
 </div>
@@ -135,25 +138,25 @@
     <div data-role="collapsible-set">
         <ul data-role="listview" data-icon="false" id="popupTracksLv">
             <li data-icon="play">
-                <a href="#" onclick="return controls.playTracks(PLAY_NOW, mopidy);">Play <span class="popupTrackName"></span></a>
+                <a href="#" onclick="return controls.playTracks(PLAY_NOW, mopidy);">{{ _("Play") }} <span class="popupTrackName"></span></a>
             </li>
             <li data-icon="playAll" data-iconshadow="false">
-                <a href="#" onclick="return controls.playTracks(PLAY_ALL, mopidy);">Play All</a>
+                <a href="#" onclick="return controls.playTracks(PLAY_ALL, mopidy);">{{ _("Play All") }}</a>
             </li>
             <li data-icon="playNext">
-                <a href="#" onclick="return controls.playTracks(PLAY_NEXT, mopidy);">Play Track Next</a>
+                <a href="#" onclick="return controls.playTracks(PLAY_NEXT, mopidy);">{{ _("Play Track Next") }}</a>
             </li>
             <li data-icon="add">
-                <a href="#" onclick="return controls.playTracks(ADD_THIS_BOTTOM, mopidy);">Add Track to Bottom of Queue</a>
+                <a href="#" onclick="return controls.playTracks(ADD_THIS_BOTTOM, mopidy);">{{ _("Add Track to Bottom of Queue") }}</a>
             </li>
             <li data-icon="addAll">
-                <a href="#" onclick="return controls.playTracks(ADD_ALL_BOTTOM, mopidy);">Add All to Bottom of Queue</a>
+                <a href="#" onclick="return controls.playTracks(ADD_ALL_BOTTOM, mopidy);">{{ _("Add All to Bottom of Queue") }}</a>
             </li>
             <li class="popupAlbumLi">
-                <a href="#" onclick="showAlbumPopup('#popupTracks', mopidy)">Show Album <span class="popupAlbumName"></span></a>
+                <a href="#" onclick="showAlbumPopup('#popupTracks', mopidy)">{{ _("Show Album") }} <span class="popupAlbumName"></span></a>
             </li>
             <li class="popupArtistsLi">
-                <a href="#" onclick="library.showArtist(null, mopidy)" class="popupArtistHref">Show Artist <span class="popupArtistName"></span>
+                <a href="#" onclick="library.showArtist(null, mopidy)" class="popupArtistHref">{{ _("Show Artist") }} <span class="popupArtistName"></span>
                 </a>
             </li>
             <div data-role="collapsible" data-icon="false" data-inset="false" class="popupArtistsDiv">
@@ -161,7 +164,7 @@
                 <ul data-icon="false" data-inset="false" data-role="listview" class="popupArtistsLv"></ul>
             </div>
             <li>
-                <a href="#" onclick="return controls.showInfoPopup('', '#popupTracks', mopidy);">Show Track Info...</span></a>
+                <a href="#" onclick="return controls.showInfoPopup('', '#popupTracks', mopidy);">{{ _("Show Track Info") }}...</span></a>
             </li>
         </ul>
     </div>
@@ -171,19 +174,19 @@
     <div data-role="collapsible-set">
         <ul data-role="listview" data-icon="false" id="popupQueueLv">
             <li data-icon="play">
-                <a href="#" onclick="return controls.playQueueTrack();">Play <span class="popupTrackName"></span></a>
+                <a href="#" onclick="return controls.playQueueTrack();">{{ _("Play") }}<span class="popupTrackName"></span></a>
             </li>
             <li data-icon="insert">
-                <a href="#" onclick="return controls.showAddTrackPopup();">Add a Track Below <span class="popupTrackName"></span></a>
+                <a href="#" onclick="return controls.showAddTrackPopup();">{{ _("Add a Track Below") }}<span class="popupTrackName"></span></a>
             </li>
             <li data-icon="remove">
-                <a href="#" onclick="return controls.removeTrack('', mopidy);">Remove from Queue</a>
+                <a href="#" onclick="return controls.removeTrack('', mopidy);">{{ _("Remove from Queue") }}</a>
             </li>
             <li class="popupAlbumLi">
-                <a href="#" onclick="showAlbumPopup('#popupQueue', mopidy)">Show Album <span class="popupAlbumName"></span></a>
+                <a href="#" onclick="showAlbumPopup('#popupQueue', mopidy)">{{ _("Show Album") }} <span class="popupAlbumName"></span></a>
             </li>
             <li class="popupArtistsLi">
-                <a href="#" onclick="library.showArtist(null, mopidy)" class="popupArtistHref">Show Artist <span class="popupArtistName"></span>
+                <a href="#" onclick="library.showArtist(null, mopidy)" class="popupArtistHref">{{ _("Show Artist") }} <span class="popupArtistName"></span>
                 </a>
             </li>
             <div data-role="collapsible" data-icon="false" data-inset="false" class="popupArtistsDiv">
@@ -191,7 +194,7 @@
                 <ul data-icon="false" data-inset="false" data-role="listview" class="popupArtistsLv"></ul>
             </div>
             <li>
-                <a href="#" onclick="return controls.showInfoPopup('', '#popupQueue', mopidy);">Show Track Info...</span></a>
+                <a href="#" onclick="return controls.showInfoPopup('', '#popupQueue', mopidy);">{{ _("Show Track Info") }}...</span></a>
             </li>
         </ul>
     </div>
@@ -199,11 +202,11 @@
 
 <div data-role="popup" data-theme="b" id="popupAddTrack" class="popupDialog">
     <form>
-        <p>Add a Track to the Queue
+        <p>{{ _("Add a Track to the Queue") }}
         <button class="btn" type="button" id="getPlayingBtn" title="Use URI of currently playing track" onclick="return controls.getCurrentlyPlaying('addTrackInput');">
-            Get Currently Playing URI
+            {{ _("Get Currently Playing URI") }}
         </button>
-        <input id="addTrackInput" placeholder="Track URI" class="span2" data-clear-btn="true"
+        <input id="addTrackInput" placeholder="{{ _("Track URI") }}" class="span2" data-clear-btn="true"
                onkeypress="return controls.checkDefaultButtonClick(event.keyCode, '#popupAddTrack');" type="text"/>
         <select name="select-add" id="select-add"></select>
         <div data-role="controlgroup" data-type="horizontal" align="center">
@@ -220,7 +223,7 @@
 <div data-role="popup" data-theme="b" id="popupSave" class="popupDialog">
     <form>
         <p>Save Current Queue to a Playlist
-        <input id="saveinput" placeholder="Playlist name" class="span2" data-clear-btn="true"
+        <input id="saveinput" placeholder="{{ _("Playlist name") }}" class="span2" data-clear-btn="true"
                onkeypress="return controls.checkDefaultButtonClick(event.keyCode, '#popupSave');" type="text"/>
         <div data-role="controlgroup" data-type="horizontal" align="center">
             <button class="btn" type="button" onclick="return $('#popupSave').popup('close');">
@@ -277,7 +280,7 @@
 <div data-role="header" data-tap-toggle="false" id="header" data-position="fixed" class="header-breakpoint headerbtn">
     <a id="headermenubtn" href="#panel"><i class="fa fa-align-justify"></i></a>
     <h1 id="contentHeadline"></h1>
-    <a id="headersearchbtn" href="#" onclick="switchContent('search' ); return false;" title="Search"><i class="fa fa-search"></i></a>
+    <a id="headersearchbtn" href="#" onclick="switchContent('search' ); return false;" title="{{ _("Search") }}"><i class="fa fa-search"></i></a>
 </div>
 <!-- /header -->
 
@@ -286,55 +289,55 @@
         <a href="#nowPlaying" onclick="switchContent('nowPlaying' ); return false;">
             <div class="ui-block-a">
                 <i class="fa fa-music"></i>
-                <h4>Now Playing</h4>
+                <h4>{{ _("Now Playing") }}</h4>
             </div>
         </a>
         <a href="#current" onclick="switchContent('current' ); return false;">
             <div class="ui-block-b">
                 <i class="fa fa-bars"></i>
-                <h4>Queue</h4>
+                <h4>{{ _("Queue") }}</h4>
             </div>
         </a>
         <a href="#playlists" onclick="switchContent('playlists' ); return false;">
             <div class="ui-block-a">
                 <i class="fa fa-star"></i>
-                <h4>Playlists</h4>
+                <h4>{{ _("Playlists") }}</h4>
             </div>
         </a>
         <a href="#browse" onclick="switchContent('browse' ); return false;">
             <div class="ui-block-b">
                 <i class="fa fa-folder"></i>
-                <h4>Browse</h4>
+                <h4>{{ _("Browse") }}</h4>
             </div>
         </a>
         <a href="#stream" onclick="switchContent('stream' ); return false;">
             <div class="ui-block-a">
                 <i class="fa fa-rss"></i>
-                <h4>Streams</h4>
+                <h4>{{ _("Streams") }}</h4>
             </div>
         </a>
         <a href="#search" onclick="switchContent('search' ); return false;">
             <div class="ui-block-b">
                 <i class="fa fa-search"></i>
-                <h4>Search</h4>
+                <h4>{{ _("Search") }}</h4>
             </div>
         </a>
         <a id="homeAlarmClock" href="/alarmclock/">
             <div class="ui-block-a">
                 <i class="fa fa-clock"></i>
-                <h4>Alarm Clock</h4>
+                <h4>{{ _("Alarm Clock") }}</h4>
             </div>
         </a>
         <a id="homesettings" href="/settings/">
             <div class="ui-block-b">
                 <i class="fa fa-gear"></i>
-                <h4>Settings</h4>
+                <h4>{{ _("Settings") }}</h4>
             </div>
         </a>
         <a id="homeshutdown" href="system.html">
             <div class="ui-block-a">
                 <i class="fa fa-power-off"></i>
-                <h4>System</h4>
+                <h4>{{ _("System") }}</h4>
             </div>
         </a>
 
@@ -365,10 +368,10 @@
 <div data-role="content" id="playlistspane" class="pane">
     <div class="ui-grid-a">
         <div class="ui-block-a">
-            <h4>Playlists</h4>
+            <h4>{{ _("Playlists") }}</h4>
         </div>
         <div align="right" class="ui-block-b" data-role="controlgroup" data-type="horizontal">
-            <button class="btn" type="button" title="Refresh playlists" onclick="return controls.refreshPlaylists();">
+            <button class="btn" type="button" title="{{ _("Refresh playlists") }}" onclick="return controls.refreshPlaylists();">
                 <i class="fa fa-refresh"></i>
             </button>
         </div>
@@ -389,7 +392,7 @@
 <div data-role="content" id="browsepane" class="pane">
     <div class="ui-grid-a">
         <div class="ui-block-a">
-            <h4>Browse</h4>
+            <h4>{{ _("Browse") }}</h4>
         </div>
         <div align="right" class="ui-block-b refreshLibraryBtnDiv" data-role="controlgroup" data-type="horizontal">
             <button id="refreshLibraryBtn" class="btn" type="button" title="Refresh library">
@@ -406,17 +409,17 @@
 <div data-role="content" class="pane" id="currentpane">
     <div class="ui-grid-a">
         <div class="ui-block-a ui-block-a-min">
-            <h4>Play Queue</h4>
+            <h4>{{ _("Queue") }}</h4>
         </div>
         <div align="right" class="ui-block-b ui-block-b-min">
             <div data-role="controlgroup" data-type="horizontal">
-                <button class="btn" type="button" title="Add a track to the queue" onclick="return controls.showAddTrackPopup();">
+                <button class="btn" type="button" title="{{ _("Add a Track to the queue") }}" onclick="return controls.showAddTrackPopup();">
                     <i class="fa fa-plus"></i>
                 </button>
-                <button class="btn" type="button" title="Save queue to playlist" onclick="return controls.showSavePopup();">
+                <button class="btn" type="button" title="{{ _("Save queue to playlist") }}" onclick="return controls.showSavePopup();">
                     <i class="fa fa-bookmark"></i>
                 </button>
-                <button class="btn" type="button" title="Clear queue" onclick="return controls.clearQueue();">
+                <button class="btn" type="button" title="{{ _("Clear queue") }}" onclick="return controls.clearQueue();">
                     <i class="fa fa-times"></i>
                 </button>
             </div>
@@ -444,17 +447,17 @@
 </div>
 
 <div data-role="content" class="pane" id="searchpane">
-    <h4>Search</h4>
+    <h4>{{ _("Search") }}</h4>
 
     <div class="ui-grid pl-breakpoint">
         <div class="ui-block">
             <form>
-                <p>Search for artists, albums, or specific tracks.
+                <p>{{ _("Search for artists, albums, or specific tracks.") }}
                 <select id="selectSearchService"></select>
-                <input id="searchinput" placeholder="Search term" class="span2" data-clear-btn="true"
+                <input id="searchinput" placeholder="{{ _("Search term") }}" class="span2" data-clear-btn="true"
                        onkeypress="return library.searchPressed(event.keyCode);" type="text"/>
                 <button class="btn" type="button" onclick="return library.initSearch(event.value);">
-                    Search!
+                    {{ _("Search") }}
                 </button>
             </form>
         </div>
@@ -496,20 +499,20 @@
     <div class="ui-grid-a pl-breakpoint">
         <div class="ui-block-a" style="padding: 5px">
             <form>
-                <p>Play a specific stream/track and optionally save it to your favourites.
+                <p>{{ _("Play a specific stream/track and optionally save it to your favourites.") }}
                 <button class="btn" type="button" onclick="return controls.getCurrentlyPlaying('streamuriinput', 'streamnameinput');">
-                    Get currently playing
+                    {{ _("Get currently playing") }}
                 </button>
                 <input id="streamuriinput" placeholder="URI" class="span2" data-clear-btn="true"
                        onkeypress="return controls.streamPressed(event.keyCode);" type="text"/>
                 <button class="btn" type="button" onclick="return controls.playStreamUri();">
-                    Play
+                    {{ _("Play") }}
                 </button>
 
-                <input id="streamnameinput" placeholder="Name" class="span2" data-clear-btn="true"
+                <input id="streamnameinput" placeholder="{{ _("Name") }}" class="span2" data-clear-btn="true"
                        onkeypress="return controls.streamPressed(event.keyCode);" type="text"/>
                 <button class="btn" type="button" onclick="return controls.addFavourite();">
-                    Save
+                    {{ _("Save") }}
                 </button>
                     <br/>
             </form>
@@ -523,9 +526,9 @@
 <div data-role="footer" data-tap-toggle="false" data-position="fixed" id="normalFooter">
     <div class="footerControls">
         <div class="playicon">
-            <a href="#" onclick="controls.doNext(); return false"><span id="btnext" title="Next"><i class="fa fa-forward-step"></i></span></a>
-            <a href="#" onclick="controls.doPlay(); return false"><span id="btplay" title="Play"><i class="fa fa-next"></i></span></a>
-            <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
+            <a href="#" onclick="controls.doNext(); return false"><span id="btnext" title="{{ _("Next") }}"><i class="fa fa-forward-step"></i></span></a>
+            <a href="#" onclick="controls.doPlay(); return false"><span id="btplay" title="{{ _("Play") }}"><i class="fa fa-next"></i></span></a>
+            <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="{{ _("Like") }}"><i class="fa-regular fa-heart"></i></span></a>
         </div>
         <div class="songinfo" id="songinfo">
             <a href="#"><div style="float: left"><img id="infocover" src="images/default_cover.png" alt="Album cover"/></div></a>
@@ -540,18 +543,18 @@
 <div data-role="footer" data-tap-toggle="false" data-position="fixed" id="nowPlayingFooter">
         <div class="footerControls" style="padding-left: 10px;">
             <div class="playbackcontrolsext" >
-                <a href="#" onclick="controls.doRandom(); return false"><span id="randombt" class="btswitch btoff" title="Random"><i class="fa fa-random"></i></span></a>
-                <a href="#" onclick="controls.doRepeat(); return false"><span id="repeatbt" class="btswitch btoff" title="Repeat"><i class="fa fa-repeat"></i></span></a>
-                <a href="#" onclick="controls.doConsume(); return false"><span id="consumebt" class="btswitch btoff" title="Consume"><i class="fa fa-cutlery"></i></span></a>
-                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" class="btswitch btoff" title="Single"><i class="fa-regular fa-dot-circle"></i></span></a>
-                <a href="#" onclick="controls.doShuffle(); return false"><span id="shufflebt" title="Shuffle"><i class="fa fa-arrows-v"></i></span></a>
-                <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="Like"><i class="fa-regular fa-heart"></i></span></a>
+                <a href="#" onclick="controls.doRandom(); return false"><span id="randombt" class="btswitch btoff" title="{{ _("Random") }}"><i class="fa fa-random"></i></span></a>
+                <a href="#" onclick="controls.doRepeat(); return false"><span id="repeatbt" class="btswitch btoff" title="{{ _("Repeat") }}"><i class="fa fa-repeat"></i></span></a>
+                <a href="#" onclick="controls.doConsume(); return false"><span id="consumebt" class="btswitch btoff" title="{{ _("Consume") }}"><i class="fa fa-cutlery"></i></span></a>
+                <a href="#" onclick="controls.doSingle(); return false"><span id="singlebt" class="btswitch btoff" title="{{ _("Single") }}"><i class="fa-regular fa-dot-circle"></i></span></a>
+                <a href="#" onclick="controls.doShuffle(); return false"><span id="shufflebt" title="{{ _("Shuffle") }}"><i class="fa fa-arrows-v"></i></span></a>
+                <a href="#" onclick="controls.doLike(); return false"><span id="btlike" title="{{ _("Like") }}"><i class="fa-regular fa-heart"></i></span></a>
             </div>
 
             <div style="float: left;" class="playbackcontrolssimp" >
-                <a href="#" onclick="controls.doPrevious(); return false"><span id="btprev" title="Previous"><i class="fa fa-fast-backward"></i></span></a>
-                <a href="#" onclick="controls.doPlay(); return false"><span id="btplayNowPlaying" title="Play"><i class="fa fa-play"></i></span></a>
-                <a href="#" onclick="controls.doNext(); return false"><span id="btnext" title="Next"><i class="fa fa-fast-forward"></i></span></a>
+                <a href="#" onclick="controls.doPrevious(); return false"><span id="btprev" title="{{ _("Previous") }}"><i class="fa fa-fast-backward"></i></span></a>
+                <a href="#" onclick="controls.doPlay(); return false"><span id="btplayNowPlaying" title="{{ _("Play") }}"><i class="fa fa-play"></i></span></a>
+                <a href="#" onclick="controls.doNext(); return false"><span id="btnext" title="{{ _("Next") }}"><i class="fa fa-fast-forward"></i></span></a>
             </div>
 
         </div>

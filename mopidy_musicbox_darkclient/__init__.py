@@ -3,6 +3,7 @@ import pathlib
 import pkg_resources
 
 from mopidy import config, ext
+from tornado import locale
 
 __version__ = pkg_resources.get_distribution(
     "Mopidy-MusicBox-Darkclient"
@@ -21,6 +22,7 @@ class Extension(ext.Extension):
     def get_config_schema(self):
         schema = super().get_config_schema()
         schema["musicbox"] = config.Boolean(optional=True)
+        schema["locale"] = config.String(optional=True, choices=["en","ru"])
         schema["websocket_host"] = config.Hostname(optional=True)
         schema["websocket_port"] = config.Port(optional=True)
         schema["on_track_click"] = config.String(
@@ -37,6 +39,7 @@ class Extension(ext.Extension):
         return schema
 
     def setup(self, registry):
+        locale.load_gettext_translations(pathlib.Path(__file__).parent / 'locale', 'messages')
         registry.add(
             "http:app", {"name": self.ext_name, "factory": self.factory}
         )

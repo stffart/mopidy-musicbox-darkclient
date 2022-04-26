@@ -41,6 +41,9 @@ class DarkWebclient:
 
         return ws_url
 
+    def locale(self):
+        return self.ext_config.get("locale", "en")
+
     def has_alarm_clock(self):
         return self.config.get("alarmclock", {}).get("enabled", False)
 

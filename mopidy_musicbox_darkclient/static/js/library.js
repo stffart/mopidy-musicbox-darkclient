@@ -206,7 +206,7 @@
          *********************************/
         getPlaylists: function () {
             //  get playlists without tracks
-            mopidy.playlists.asList().then(processGetPlaylists, console.error)
+            mopidy_connected().then(function () { mopidy.playlists.asList().then(processGetPlaylists, console.error) });
         },
 
         getBrowseDir: function (rootdir) {
@@ -222,7 +222,8 @@
             } else if (browseStack.length === 0 || rootdir !== browseStack[browseStack.length - 1].uri) {
                 browseStack.push({'uri': rootdir, 'scrollPos': 0})  // Navigated one level down
             }
-            mopidy.library.browse({'uri': rootdir}).then(function (resultArr) {
+            mopidy_connected().then(() => {
+              mopidy.library.browse({'uri': rootdir}).then(function (resultArr) {
                 processBrowseDir(resultArr)
                 if (rootdir === null) {
                     $('.refreshLibraryBtnDiv').hide()  // Mopidy does not support refreshing list of backends.
@@ -232,11 +233,12 @@
                     $('#refreshLibraryBtn').off('click')
                     $('#refreshLibraryBtn').one('click', controls.refreshLibrary)
                 }
-            }, console.error)
+              }, console.error)
+            })
         },
 
         getCurrentPlaylist: function () {
-              mopidy.tracklist.getTlTracks().then(processCurrentPlaylist, console.error)
+                mopidy_connected().then(function () { mopidy.tracklist.getTlTracks().then(processCurrentPlaylist, console.error) });
         },
 
         /** ******************************************************
@@ -350,7 +352,7 @@
                 searchScheme = 'all'
             }
             $('#selectSearchService').empty()
-            $('#selectSearchService').append(new Option('All services', 'all'))
+            $('#selectSearchService').append(new Option(t('All services'), 'all'))
             mopidy.getUriSchemes().then(function (schemesArray) {
                 schemesArray = schemesArray.filter(function (el) {
                     return searchBlacklist.indexOf(el) < 0

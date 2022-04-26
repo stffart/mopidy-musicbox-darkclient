@@ -135,7 +135,8 @@
             }
             size = size || 'extralarge'
 
-            mopidy.library.getImages({'uris': [uri]}).then(function (imageResults) {
+            mopidy_connected().then(() => {
+              mopidy.library.getImages({'uris': [uri]}).then(function (imageResults) {
                 var uri = Object.keys(imageResults)[0]
                 if (imageResults[uri].length > 0) {
                     $(img_element).attr('src', imageResults[uri][0].uri)
@@ -144,6 +145,7 @@
                     // implement mopidy.library.getImages yet...
                     images._setDeprecatedAlbumImage(uri, img_element, mopidy, size)
                 }
+              })
             })
         },
 

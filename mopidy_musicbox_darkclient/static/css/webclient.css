@@ -13,6 +13,15 @@
  *    portr 48
  ****************************/
 
+.songtext span {
+  display: block;
+  font-size: 11px;
+  margin-top: 4px;
+  max-width: 450px;
+  color: #bdbdbd !important;
+}
+
+
 @media (max-height: 800px) {
   #albumCoverImg {
     max-height: 340px !important;
@@ -1003,12 +1012,6 @@ input[type=text] {
 }
 
 
-.songtext span {
-  display: block;
-  font-size: 11px;
-  margin-top: 4px;
-  color: #bdbdbd !important;
-}
 
 .playlistimg {
   display: inline-block;
@@ -1027,7 +1030,6 @@ input[type=text] {
 
 h4 {
   font-size: 110%;
-  margin-right: 10px;
 }
 
 .bton {

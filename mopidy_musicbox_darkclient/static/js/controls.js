@@ -511,16 +511,16 @@
         setPlayState: function (nwplay) {
             if (nwplay) {
                 $('#btplayNowPlaying >i').removeClass('fa-play').addClass('fa-pause')
-                $('#btplayNowPlaying').attr('title', 'Pause')
+                $('#btplayNowPlaying').attr('title', t('Pause'))
                 $('#btplay >i').removeClass('fa-play').addClass('fa-pause')
-                $('#btplay').attr('title', 'Pause')
-                mopidy.playback.getTimePosition().then(processCurrentposition, console.error)
+                $('#btplay').attr('title', t('Pause'))
+                mopidy_connected().then(() => {mopidy.playback.getTimePosition().then(processCurrentposition, console.error)})
                 syncedProgressTimer.start()
             } else {
                 $('#btplayNowPlaying >i').removeClass('fa-pause').addClass('fa-play')
-                $('#btplayNowPlaying').attr('title', 'Play')
+                $('#btplayNowPlaying').attr('title', t('Play'))
                 $('#btplay >i').removeClass('fa-pause').addClass('fa-play')
-                $('#btplay').attr('title', 'Play')
+                $('#btplay').attr('title', t('Play'))
                 syncedProgressTimer.stop()
             }
             play = nwplay
@@ -713,10 +713,13 @@
 
         getUriSchemes: function () {
             uriSchemes = {}
-            return mopidy.getUriSchemes().then(function (schemes) {
-                for (var i = 0; i < schemes.length; i++) {
+            
+            return mopidy_connected().then(() => {
+                mopidy.getUriSchemes().then(function (schemes) {
+                  for (var i = 0; i < schemes.length; i++) {
                     uriSchemes[schemes[i].toLowerCase()] = true
-                }
+                  }
+                })
             })
         },
 

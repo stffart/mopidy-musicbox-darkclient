@@ -5,6 +5,7 @@ import string
 import urllib.parse
 
 import tornado.web
+import tornado.locale
 
 import mopidy_musicbox_darkclient.webclient as mmw
 
@@ -33,6 +34,8 @@ class IndexHandler(tornado.web.RequestHandler):
 
         webclient = mmw.DarkWebclient(config)
 
+        self.locale_name = webclient.locale()
+
         if webclient.is_music_box():
             program_name = "MusicBox"
         else:
@@ -49,6 +52,7 @@ class IndexHandler(tornado.web.RequestHandler):
 
         self.__dict = {
             "isMusicBox": json.dumps(webclient.is_music_box()),
+            "locale": self.locale_name,
             "websocketUrl": webclient.get_websocket_url(self.request),
             "hasAlarmClock": json.dumps(webclient.has_alarm_clock()),
             "onTrackClick": webclient.get_default_click_action(),
@@ -59,6 +63,9 @@ class IndexHandler(tornado.web.RequestHandler):
         }
         self.__path = path
         self.__title = string.Template(f"{program_name} on $hostname")
+
+    def get_user_locale(self):
+        return tornado.locale.get(self.locale_name)
 
     def get(self, path):
         return self.render(path, title=self.get_title(), **self.__dict)
