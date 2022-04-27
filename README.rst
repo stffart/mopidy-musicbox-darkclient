@@ -2,7 +2,7 @@
 Mopidy-MusicBox-Darkclient
 *****************************
 
-Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially 
+Mopidy MusicBox Webclient (MMW) is a frontend extension and JavaScript-based web client especially
 written for Mopidy
 
 Darkclient is dark theme for MMW. Can be used as standalone Mopidy plugin without upstream MMW.
@@ -18,6 +18,7 @@ Features
 - Artwork and Like extensions
 - Support for all of the Mopidy playback controls (consume mode, repeat, shuffle, etc.)
 - Fullscreen mode.
+- Multilanguage support
 
 .. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
    :height: 425 px
@@ -55,6 +56,7 @@ MMW is shipped with default settings that should work straight out of the box fo
     websocket_host =
     websocket_port =
     on_track_click = PLAY_ALL
+    locale = en
 
 The following configuration values are available should you wish to customize your installation further:
 
@@ -67,8 +69,11 @@ The following configuration values are available should you wish to customize yo
 
 - ``musicbox_darkclient/websocket_port``: Optional setting to specify the target port for Mopidy websocket connections.
 
-- ``musicbox_darkclient/on_track_click``: The action performed when clicking on a track. Valid options are: 
+- ``musicbox_darkclient/on_track_click``: The action performed when clicking on a track. Valid options are:
   ``PLAY_ALL`` (default), ``PLAY_NOW``, ``PLAY_NEXT``, ``ADD_THIS_BOTTOM``, ``ADD_ALL_BOTTOM``, and ``DYNAMIC`` (repeats last action).
+
+- ``musicbox_darkclient/locale``: Optional setting to specify user interface language.
+
 
 Usage
 =====
@@ -80,4 +85,3 @@ Credits
 
 - Original author: `Wouter van Wijk <https://github.com/woutervanwijk>`__
 - `Contributors <https://github.com/pimusicbox/mopidy-musicbox-webclient/graphs/contributors>`_
-
