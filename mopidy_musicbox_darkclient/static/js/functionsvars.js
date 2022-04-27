@@ -475,7 +475,7 @@ function showLoading (on) {
     if (on) {
         $('body').css('cursor', 'progress')
         $.mobile.loading('show', {
-            text: 'Loading data from ' + PROGRAM_NAME + ' on ' + HOSTNAME + '. Please wait...',
+            text: t('Loading data from ') + PROGRAM_NAME + ' ' + t('on')+' ' + HOSTNAME + '. '+t('Please wait...'),
             textVisible: true,
             theme: 'a'
         })
@@ -488,7 +488,7 @@ function showLoading (on) {
 function showOffline (on) {
     if (on) {
         $.mobile.loading('show', {
-            text: 'Trying to reach ' + PROGRAM_NAME + ' on ' + HOSTNAME + '. Please wait...',
+            text: t('Trying to reach ') + PROGRAM_NAME + ' ' + t('on') + ' ' + HOSTNAME + '. '+t('Please wait...'),
             textVisible: true,
             theme: 'a'
         })

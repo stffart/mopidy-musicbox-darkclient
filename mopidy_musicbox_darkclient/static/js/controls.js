@@ -349,10 +349,11 @@
                 var uri = Object.keys(resultDict)[0]
                 var track = resultDict[uri][0]
                 var html = ''
-                var rowTemplate = '<tr><td class="label">{label}:</td><td id="{label}-cell">{text}</td></tr>'
+                var rowTemplate = '<tr><td class="label">{labeltext}:</td><td id="{label}-cell">{text}</td></tr>'
                 var row = {'label': '', 'text': ''}
 
                 row.label = 'Name'
+                row.labeltext = t('Name')
                 if (track.name) {
                     row.text = track.name
                 } else {
@@ -361,6 +362,7 @@
                 html += stringFromTemplate(rowTemplate, row)
 
                 row.label = 'Album'
+                row.labeltext = t('Album')
                 if (track.album && track.album.name) {
                     row.text = track.album.name
                 } else {
@@ -376,8 +378,10 @@
 
                 if (artists.length > 0) {
                     row.label = 'Artist'
+                    row.labeltext = t('Artist')
                     if (track.artists && track.artists.length > 1 || track.album && track.album.artists && track.album.artists.length > 1) {
                         row.label += 's'
+                        row.labeltext = t('Artists')
                     }
                     row.text = artists
                     html += stringFromTemplate(rowTemplate, row)
@@ -386,8 +390,10 @@
                 var composers = artistsToString(track.composers)
                 if (composers.length > 0) {
                     row.label = 'Composer'
+                    row.labeltext = t('Composer')
                     if (track.composers.length > 1) {
                         row.label += 's'
+                        row.labeltext = t('Composers')
                     }
                     row.text = composers
                     html += stringFromTemplate(rowTemplate, row)
@@ -396,8 +402,10 @@
                 var performers = artistsToString(track.performers)
                 if (performers.length > 0) {
                     row.label = 'Performer'
+                    row.labeltext = t('Performer')
                     if (track.performers.length > 1) {
                         row.label += 's'
+                        row.labeltext = t('Performers')
                     }
                     row.text = performers
                     html += stringFromTemplate(rowTemplate, row)
@@ -405,51 +413,61 @@
 
                 if (track.genre) {
                     row = {'label': 'Genre', 'text': track.genre}
+                    row.labeltext = t('Genre')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.track_no) {
                     row = {'label': 'Track #', 'text': track.track_no}
+                    row.labeltext = t('Track #')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.disc_no) {
                     row = {'label': 'Disc #', 'text': track.disc_no}
+                    row.labeltext = t('Disc #')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.date) {
                     row = {'label': 'Date', 'text': new Date(track.date).toLocaleString()}
+                    row.labeltext = t('Date')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.length) {
                     row = {'label': 'Length', 'text': timeFromSeconds(track.length / 1000)}
+                    row.labeltext = t('Length')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.bitrate) {
                     row = {'label': 'Bitrate', 'text': track.bitrate}
+                    row.labeltext = t('Bitrate')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.comment) {
                     row = {'label': 'Comment', 'text': track.comment}
+                    row.labeltext = t('Comment')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.musicbrainz_id) {
                     row = {'label': 'MusicBrainz ID', 'text': track.musicbrainz_id}
+                    row.labeltext = t('MusicBrainz ID')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 if (track.last_modified) {
                     row = {'label': 'Modified', 'text': track.last_modified}
+                    row.labeltext = t('Modified')
                     html += stringFromTemplate(rowTemplate, row)
                 }
 
                 rowTemplate = '<tr><td class="label label-center">{label}:</td><td><input type="text" id="uri-input" value="{text}"></input></td></tr>'
                 row = {'label': 'URI', 'text': uri}
+                row.labeltext = t('URI')
                 html += stringFromTemplate(rowTemplate, row)
 
                 $('#popupShowInfo tbody').append(html)

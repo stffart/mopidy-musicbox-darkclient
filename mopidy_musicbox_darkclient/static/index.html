@@ -160,7 +160,7 @@
                 </a>
             </li>
             <div data-role="collapsible" data-icon="false" data-inset="false" class="popupArtistsDiv">
-                <h2>Artists</h2>
+                <h2>{{ _("Artists") }}</h2>
                 <ul data-icon="false" data-inset="false" data-role="listview" class="popupArtistsLv"></ul>
             </div>
             <li>
@@ -190,7 +190,7 @@
                 </a>
             </li>
             <div data-role="collapsible" data-icon="false" data-inset="false" class="popupArtistsDiv">
-                <h2>Artists</h2>
+                <h2>{{ _("Artists") }}</h2>
                 <ul data-icon="false" data-inset="false" data-role="listview" class="popupArtistsLv"></ul>
             </div>
             <li>
@@ -211,10 +211,10 @@
         <select name="select-add" id="select-add"></select>
         <div data-role="controlgroup" data-type="horizontal" align="center">
             <button class="btn" type="button" onclick="return $('#popupAddTrack').popup('close');">
-                Cancel
+                {{ _("Cancel") }}
             </button>
             <button class="btn" type="button" data-default-btn="true" onclick="return controls.addTrack($('#addTrackInput').val(), mopidy);">
-                Add
+                {{ _("Add") }}
             </button>
         </div>
     </form>
@@ -222,15 +222,15 @@
 
 <div data-role="popup" data-theme="b" id="popupSave" class="popupDialog">
     <form>
-        <p>Save Current Queue to a Playlist
+        <p>{{ _("Save Current Queue to a Playlist") }}
         <input id="saveinput" placeholder="{{ _("Playlist name") }}" class="span2" data-clear-btn="true"
                onkeypress="return controls.checkDefaultButtonClick(event.keyCode, '#popupSave');" type="text"/>
         <div data-role="controlgroup" data-type="horizontal" align="center">
             <button class="btn" type="button" onclick="return $('#popupSave').popup('close');">
-                Cancel
+                {{ _("Cancel") }}
             </button>
             <button class="btn" type="button" data-default-btn="true" onclick="return controls.saveQueue();">
-                Save
+                {{ _("Save") }}
             </button>
         </div>
     </form>
@@ -238,13 +238,13 @@
 
 <div data-role="popup" data-theme="b" id="popupOverwrite" class="popupDialog">
     <form>
-        <p>A playlist with the same name already exists. Overwrite?
+        <p>{{ _("A playlist with the same name already exists. Overwrite?") }}
         <div data-role="controlgroup" data-type="horizontal" align="center">
             <button class="btn" type="button" id="overwriteConfirmBtn">
-                Overwrite
+                {{ _("Overwrite") }}
             </button>
             <button class="btn" type="button" onclick="$('#popupOverwrite').popup('close'); return $('#popupSave').popup('open');">
-                Cancel
+                {{ _("Cancel") }}
             </button>
         </div>
     </form>
@@ -252,20 +252,20 @@
 
 <div data-role="popup" data-theme="b" id="popupConfirmDelete" class="popupDialog">
     <form>
-        <p>Are you sure you want to remove <span class="popupStreamName"></span>?
+        <p>{{ _("Are you sure you want to remove") }} <span class="popupStreamName"></span>?
         <div data-role="controlgroup" data-type="horizontal" align="center">
             <button class="btn" type="button" onclick="return controls.deleteFavourite();">
-                Remove
+                {{ _("Remove") }}
             </button>
             <button class="btn" type="button" onclick="$('#popupConfirmDelete').popup('close');">
-                Cancel
+                {{ _("Cancel") }}
             </button>
         </div>
     </form>
 </div><!--/confirm delete stream-->
 
 <div data-role="popup" data-theme="b" id="popupShowInfo" class="popupDialog-full-width">
-    <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">{{ _("Close") }}</a>
     <table data-role="table" data-mode="reflow" class="ui-responsive table-stroke info-table">
         <thead>
             <tr>
@@ -467,7 +467,7 @@
         <div class="ui-block-a" id="searchartists">
             <div data-role="listview" data-inset="true">
                 <div data-role="header">
-                    <h4>Artists</h4>
+                    <h4>{{ _("Artists") }}</h4>
                 </div>
                 <div data-role="content">
                     <ul data-role="listview" id="artistresulttable"></ul>
@@ -477,7 +477,7 @@
         <div class="ui-block-b" id="searchalbums">
             <div data-role="listview" data-inset="true">
                 <div data-role="header">
-                    <h4>Albums</h4>
+                    <h4>{{ _("Albums") }}</h4>
                 </div>
                 <div data-role="content">
                     <ul data-role="listview" id="albumresulttable"></ul>
@@ -487,14 +487,14 @@
     </div>
 
     <div class="" id="searchtracks">
-        <h4>Tracks</h4>
+        <h4>{{ _("Tracks") }}</h4>
         <ul id="trackresulttable" class="table"></ul>
     </div>
 </div>
 <!-- search div -->
 
 <div data-role="content" class="pane" id="streampane">
-    <h4>Streams</h4>
+    <h4>{{ _("Streams") }}</h4>
 
     <div class="ui-grid-a pl-breakpoint">
         <div class="ui-block-a" style="padding: 5px">

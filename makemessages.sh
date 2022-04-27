@@ -9,15 +9,15 @@ domain="messages"
 if [ ! -z "$2" ]; then
     domain=$2
 fi
-locale_dir="locale/${locale}/LC_MESSAGES"
-pot_file="locale/${domain}.pot"
+locale_dir="mopidy_musicbox_darkclient/locale/${locale}/LC_MESSAGES"
+pot_file="mopidy_musicbox_darkclient/locale/${domain}.pot"
 po_file="${locale_dir}/${domain}.po"
 # create folders if not exists
 mkdir -p $locale_dir
 # create .pot file
 
-cat mopidy_musicbox_darkclient/static/index_fix.html | sed 's/% end %/% endif %/g' > mopidy_musicbox_darkclient/static/index_fix.html
-/usr/local/bin/pybabel extract -F babel.cfg -o ${pot_file}  --input=mopidy_musicbox_darkclient/static/index_fix.html
+cat mopidy_musicbox_darkclient/static/index.html | sed 's/% end %/% endif %/g' > mopidy_musicbox_darkclient/static/index_fix.html
+/usr/local/bin/pybabel extract --keywords t -F babel.cfg -o ${pot_file}  --input=mopidy_musicbox_darkclient/static/
 rm -f mopidy_musicbox_darkclient/static/index_fix.html
 
 # init .po file, if it doesn't exist yet
