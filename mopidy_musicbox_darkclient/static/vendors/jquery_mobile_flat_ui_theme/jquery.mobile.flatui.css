@@ -215,8 +215,8 @@
 .ui-body-c.ui-input-text.ui-focus{border:3px solid var(--s-cl);-webkit-transition:border linear .2s;-moz-transition:border linear .2s;-o-transition:border linear .2s;transition:border linear .2s}
 .ui-btn-up-c{border:1px solid #484848; background:#484848;font-weight:bold;color:#ffffff;}
 .ui-btn-up-c:visited,.ui-btn-up-c a.ui-link-inherit{color:#000}
-.ui-btn-hover-c{border:1px solid var(--s-cl-dark); background:var(--s-cl-dark); font-weight:bold;color:#000;}
-.ui-btn-hover-c:visited,.ui-btn-hover-c:hover,.ui-btn-hover-c a.ui-link-inherit{color:#000}
+.ui-btn-hover-c{border:1px solid var(--s-cl-dark); background:var(--s-cl-dark); font-weight:bold;color:#fff !important;}
+.ui-btn-hover-c:visited,.ui-btn-hover-c:hover,.ui-btn-hover-c a.ui-link-inherit{color:#fff !important;}
 .ui-btn-down-c{border:1px solid var(--s-cl-dark);background:var(--s-cl-dark);font-weight:bold;color:#000;}
 .ui-btn-down-c:visited,.ui-btn-down-c:hover,.ui-btn-down-c a.ui-link-inherit{color:#000}
 .ui-btn-up-c,.ui-btn-hover-c,.ui-btn-down-c{font-family:Lato,sans-serif;text-decoration:none}
@@ -2841,7 +2841,7 @@ div.ui-slider-switch.ui-mini {
 /* content-wrap */
 .ui-panel-content-wrap {
         position: absolute;
-        height: 90%;
+        height: 92%;
 	left: 0;
 	min-height: inherit;
 	border: none;

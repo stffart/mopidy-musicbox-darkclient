@@ -62,13 +62,19 @@ function switchDevice(device, sendMessage) {
 function updateDevices(devices) {
    mopidyDevices = devices;
    $('#deviceselect').customSelect('empty')
+   var anyActive = false;
+   for (var device in devices) {
+    if (devices[device].active) anyActive = true;
+   }
+   var n = 0;
    for (var device in devices) {
     var option = $('<option></option>').attr("value", devices[device].name).text(devices[device].name);
-    if (devices[device].active) {
+    if (devices[device].active || (n == 0 && !anyActive)) {
       option.attr("selected",true)
       switchDevice(device,false)
     }
     $('#deviceselect').customSelect('append',option)
+    n++;
    }
 
    $('#deviceselect').on('change', function(e) {

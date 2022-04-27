@@ -374,6 +374,10 @@ function switchContent (divid, uri) {
         hash += '?' + uri
     }
     location.hash = '#' + hash
+    if (hash == 'current' || hash == 'playlists') {
+       setTimeout(scrollToCurrentTrack,100);
+    }
+
 }
 
 function setHeadline (site) {
@@ -637,6 +641,7 @@ function updatePlayIcons (uri, tlid, popupMenuIcon) {
             if (this.id === getjQueryID(target, uri) && eachTlid === tlid) {
                 if (!$(this).hasClass('currenttrack')) {
                     $(this).addClass('currenttrack')
+                    scrollToCurrentTrack();
                 }
             } else if ($(this).hasClass('currenttrack')) {
                 $(this).removeClass('currenttrack')
@@ -652,6 +657,7 @@ function updatePlayIcons (uri, tlid, popupMenuIcon) {
             if (uri) {
                 if (this.id === getjQueryID(target, uri)) {
                     $(this).addClass('currenttrack2')
+                    scrollToCurrentTrack();
                 } else {
                     $(this).removeClass('currenttrack2')
                 }
@@ -666,11 +672,7 @@ function updatePlayIcons (uri, tlid, popupMenuIcon) {
         })
     }
 
-    var current = $(".currenttrack")[0]
-    if (current != undefined) {
-      var currentPos = findElementYPosition($(".currenttrack")[0])
-      window.scroll(0,currentPos-100)
-    }
+
 }
 
 

@@ -299,6 +299,8 @@ span.hostInfo {
 
 .ui-panel-content-wrap {
     min-height: initial !important;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #searchartists {
@@ -463,16 +465,17 @@ span.hostInfo {
 }
 
 .info-table td {
-    color: #333333 !important;
+    color: #333333;
     padding: 2px;
     padding-right: 14px;
     padding-left: 14px;
     border: none !important;
-    font-size: 11pt;
+    font-weight: bold;
 }
 
 .info-table td.label {
-    font-weight: bold;
+    color: #333333;
+    font-weight: normal;
 }
 
 .info-table td.label-center {
@@ -727,7 +730,7 @@ img[src="images/default_cover.png"] {
 .ui-icon-add:after,
 .ui-icon-addAll:after,
 .ui-icon-remove:after {
-    color: #34495e;
+    color: #121212;
     font-family: 'FontAwesome';
 }
 

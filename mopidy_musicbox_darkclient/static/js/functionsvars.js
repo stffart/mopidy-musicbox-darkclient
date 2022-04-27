@@ -163,7 +163,7 @@ var audioExt = [
 ]
 
 function scrollToTop () {
-    $('body,html').animate({
+    $(".ui-panel-content-wrap.ui-body-c").animate({
         scrollTop: 0
     }, 250)
 }
@@ -173,7 +173,33 @@ function scrollToTracklist () {
     $('body,html').animate({
         scrollTop: divtop
     }, 250)
+
 }
+
+function scrollToCurrentTrack() {
+    if (location.hash == '#current') {
+      var currentTrack = $('.currenttrack')[0]
+      if (currentTrack != undefined) {
+        var tracktop = currentTrack.offsetTop - 120
+        $(".ui-panel-content-wrap.ui-body-c").animate({
+          scrollTop: tracktop
+        }, 250)
+      }
+    }
+
+    if (location.hash == '#playlists') {
+      var currentTrack2 = $('.currenttrack2')[0]
+      if (currentTrack2 != undefined) {
+        var tracktop = currentTrack2.offsetTop - 120
+        $(".ui-panel-content-wrap.ui-body-c").animate({
+          scrollTop: tracktop
+        }, 250)
+      } else {
+        scrollToTop()
+      }
+    }
+}
+
 
 function isMobileAll () {
     // Checks for known mobile and tablet devices - see http://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
