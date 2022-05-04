@@ -55,6 +55,7 @@ class IndexHandler(tornado.web.RequestHandler):
             "locale": self.locale_name,
             "websocketUrl": webclient.get_websocket_url(self.request),
             "hasAlarmClock": json.dumps(webclient.has_alarm_clock()),
+            "hasMarket": json.dumps(webclient.has_market()),
             "onTrackClick": webclient.get_default_click_action(),
             "programName": program_name,
             "hostname": url.hostname,

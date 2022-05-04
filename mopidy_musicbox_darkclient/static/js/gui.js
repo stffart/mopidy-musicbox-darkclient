@@ -549,6 +549,11 @@ $(document).ready(function (event) {
         $('#homeAlarmClock').nextAll().find('.ui-block-a, .ui-block-b').toggleClass('ui-block-a').toggleClass('ui-block-b')
     }
 
+    // Remove Market icons if it is not present
+    if (!$(document.body).data('has-market')) {
+        $('#navMarket').hide()
+    }
+
     // navigation stuff
 
     $(document).keypress(function (event) {

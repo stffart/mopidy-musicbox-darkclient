@@ -47,6 +47,9 @@ class DarkWebclient:
     def has_alarm_clock(self):
         return self.config.get("alarmclock", {}).get("enabled", False)
 
+    def has_market(self):
+        return self.config.get("market", {}).get("enabled", False)
+
     def is_music_box(self):
         return self.ext_config.get("musicbox", False)
 

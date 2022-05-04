@@ -43,7 +43,7 @@
 
 </head>
 
-<body data-websocket-url="{{ websocketUrl }}" data-is-musicbox="{{ isMusicBox }}" data-has-alarmclock="{{ hasAlarmClock }}" data-on-track-click="{{ onTrackClick }}" data-program-name="{{ programName }}" data-hostname="{{ hostname }}" data-title="{{ title }}" data-locale="{{ locale }}">
+<body data-websocket-url="{{ websocketUrl }}" data-is-musicbox="{{ isMusicBox }}" data-has-alarmclock="{{ hasAlarmClock }}" data-has-market="{{ hasMarket }}" data-on-track-click="{{ onTrackClick }}" data-program-name="{{ programName }}" data-hostname="{{ hostname }}" data-title="{{ title }}" data-locale="{{ locale }}">
 <div data-role="page" id="page" class="ui-responsive-panel" data-theme="c" data-title="{{ title }}">
 <div data-role="panel" id="panel" data-position="left" data-theme="a" data-display="reveal" data-position-fixed="true">
 
@@ -79,6 +79,10 @@
         <li id="navAlarmClock" data-icon="false">
                 <a href="/alarmclock/">
                 <span class="navtxt"> {{ _("Alarm Clock") }}</span><i class="fa fa-clock"></i></a>
+        </li>
+        <li id="navMarket" data-icon="false">
+                <a href="/market/">
+                <span class="navtxt"> {{ _("Market") }}</span><i class="fa fa-box"></i></a>
         </li>
         <li id="navToggleFullscreen" data-icon="false">
                 <a href="#">
