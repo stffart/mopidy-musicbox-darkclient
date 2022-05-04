@@ -22,3 +22,4 @@ include .eslintrc
 include package.json
 
 recursive-include mopidy_musicbox_darkclient/static *
+recursive-include mopidy_musicbox_darkclient/locale *

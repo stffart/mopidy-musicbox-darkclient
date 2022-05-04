@@ -23,6 +23,9 @@ function setMopidyEvents(mopidy_cl) {
   mopidy_cl.on("state:online", () => {
     console.log('mopidy online '+mopidy_client._webSocket.url)
     mopidy_connecting = false;
+    playlists = {}
+    if (currentPlaylist.length > 0)
+      library.showTracklist(currentPlaylist)
   });
   mopidy_cl.on("websocket:close", () => {
     mopidy_connecting = true;
@@ -55,6 +58,7 @@ function switchDevice(device, sendMessage) {
             syncedProgressTimer = new SyncedProgressTimer(8, mopidy)
             resetSong()
             library.getPlaylists()
+            switchContent('current')
         });
       }
 }

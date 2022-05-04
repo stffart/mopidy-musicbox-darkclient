@@ -253,7 +253,6 @@ function processCurrentPlaylist (resultArr) {
         // Last track in queue was deleted, reset UI.
         resetSong()
     }
-    scrollToTracklist()
 }
 
 /** ******************************************************

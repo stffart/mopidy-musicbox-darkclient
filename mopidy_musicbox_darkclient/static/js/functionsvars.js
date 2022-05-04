@@ -17,6 +17,7 @@ var single
 var mute
 var volumeChanging
 var volumeSliding = false
+var currentPlaylist = ""
 
 var positionChanging
 

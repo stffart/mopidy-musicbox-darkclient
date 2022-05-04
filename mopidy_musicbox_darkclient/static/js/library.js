@@ -260,6 +260,7 @@
          * Lookups
          ************/
         showTracklist: function (uri) {
+            currentPlaylist = uri;
             showLoading(true)
             $(PLAYLIST_TABLE).empty()
             library.togglePlaylists()
