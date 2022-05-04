@@ -2,6 +2,7 @@ var masterSocket = null;
 var mopidyDevices = []
 var mopidy_client = []
 var mopidy_connecting = false;
+var masterSocketMode = "none"
 
 function check_mopidy(resolve) {
   if (!mopidy_connecting && mopidy.playback != undefined && mopidy.tracklist != undefined) {
@@ -91,6 +92,32 @@ function updateDevices(devices) {
 }
 
 
+function setMasterEvents(masterSocket) {
+  var loc = window.location;
+  masterSocket.onmessage = function (event) {
+    console.log(event.data)
+    msg = JSON.parse(event.data)
+    if ( msg.msg == 'devices' ) {
+      updateDevices(msg.devices)
+    }
+  }
+  masterSocket.onerror = function (event) {
+    if (masterSocketMode == "master") {
+      masterSocketMode = "slave"
+      masterSocket = new WebSocket('ws://'+loc.host+'/mopidy_mopidy/socketapi/ws');
+      setMasterEvents(masterSocket);
+    } else if (masterSocketMode == "slave") {
+      masterSocketMode = "none"
+      $('#devicesist').hide()
+    }
+  }
+  masterSocket.onopen = function (event) {
+    masterSocket.send(JSON.stringify({message:'subscribe'}));
+    masterSocket.send(JSON.stringify({message:'list'}));
+  }
+
+}
+
 function initMasterApi() {
   var loc = window.location;
   if (masterSocket != null) {
@@ -101,22 +128,14 @@ function initMasterApi() {
   }
   mopidy_client =  mopidy;
   setMopidyEvents(mopidy_client)
-
-  masterSocket = new WebSocket('ws://'+loc.host+'/master/socketapi/ws');
-  masterSocket.onmessage = function (event) {
-    console.log(event.data)
-    msg = JSON.parse(event.data)
-    if ( msg.msg == 'devices' ) {
-      updateDevices(msg.devices)
-    }
+  if (masterSocketMode == "none") {
+    masterSocketMode = "master"
   }
-  masterSocket.onerror = function (event) {
-    $('#devicesist').hide()
-  }
-  masterSocket.onopen = function (event) {
-    masterSocket.send(JSON.stringify({message:'subscribe'}));
-    masterSocket.send(JSON.stringify({message:'list'}));
-  }
+  if (masterSocketMode == "master")
+    masterSocket = new WebSocket('ws://'+loc.host+'/master/socketapi/ws');
+  else if (masterSocketMode == "slave")
+    masterSocket = new WebSocket('ws://'+loc.host+'/mopidy_mopidy/socketapi/ws');    
+  setMasterEvents(masterSocket);
 }
 
 
