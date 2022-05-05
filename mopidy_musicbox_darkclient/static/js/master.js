@@ -68,6 +68,7 @@ function switchDevice(device, sendMessage) {
 }
 
 function updateDevices(devices) {
+   $('div.devicelist').show()
    mopidyDevices = devices;
    $('#deviceselect').customSelect('empty')
    var anyActive = false;
@@ -111,7 +112,7 @@ function setMasterEvents(masterSocket) {
       setMasterEvents(masterSocket);
     } else if (masterSocketMode == "slave") {
       masterSocketMode = "none"
-      $('#devicesist').hide()
+      $('div.devicelist').hide()
     }
   }
   masterSocket.onopen = function (event) {
@@ -123,6 +124,7 @@ function setMasterEvents(masterSocket) {
 
 function initMasterApi() {
   var loc = window.location;
+  $('div.devicelist').hide()
   if (masterSocket != null) {
     if (masterSocket.readyState == WebSocket.OPEN) {
       return;

@@ -95,6 +95,10 @@ class LikeHandler(tornado.web.RequestHandler):
         uri = f"{uri_scheme}:track:{track_id}"
         logger.error(uri)
         tl_tracks = self._core.tracklist.filter({"uri": [uri]}).get()
+        if len(tl_tracks) == 0:
+            tl_track = self._core.playback.get_current_tl_track().get()
+            if uri in tl_track.track.uri:
+                tl_tracks = [tl_track]
         position = self._core.tracklist.index(tl_tracks[0]).get()
         #replacing track in current playback with liked one
         #mopidy has not method for this, so we need to delete old one, create new on the same position
