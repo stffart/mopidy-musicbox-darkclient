@@ -517,7 +517,7 @@
         },
         doLike: function() {
             var tlid = songdata.tlid;
-            $.getJSON( '/musicbox_darkclient/liked:'+!isliked+':'+songdata.track.uri, function(response) { 
+            $.getJSON( currentRestUrl+'/musicbox_darkclient/liked:'+!isliked+':'+songdata.track.uri, function(response) { 
                 if(response.result) {
                   updateLikeIcons(songdata.track.uri, tlid, !isliked)
                   controls.setLikeState(!isliked)

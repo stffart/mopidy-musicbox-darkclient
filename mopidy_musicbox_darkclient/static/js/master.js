@@ -1,4 +1,5 @@
 var masterSocket = null;
+var currentRestUrl = null;
 var mopidyDevices = []
 var mopidy_client = []
 var mopidy_connecting = false;
@@ -38,6 +39,8 @@ function switchDevice(device, sendMessage) {
       mopidyDevice = mopidyDevices[device]
       if (currentWebsocketUrl != mopidyDevice.ws) {
         currentWebsocketUrl = mopidyDevice.ws
+        var url_parts = mopidyDevice.url.split('/')
+        currentRestUrl = url_parts[0]+'//'+url_parts[2]
         mopidy_connecting = true;
         console.log("waiting reconnect")
 
