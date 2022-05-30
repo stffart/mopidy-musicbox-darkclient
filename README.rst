@@ -20,7 +20,7 @@ Features
 - Fullscreen mode.
 - Multilanguage support
 
-.. image:: https://github.com/stffart/mopidy-musicbox-webclient/raw/develop/screenshots/overview.png
+.. image:: https://github.com/stffart/mopidy-musicbox-darkclient/raw/develop/screenshots/overview.png
    :height: 425 px
    :width: 762 px
    :align: center
