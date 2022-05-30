@@ -124,13 +124,13 @@ function setMasterEvents(masterSocket) {
 
 function initMasterApi() {
   var loc = window.location;
-  $('div.devicelist').hide()
   if (masterSocket != null) {
     if (masterSocket.readyState == WebSocket.OPEN) {
       return;
     }
     masterSocket.onopen = function (event) {};
   }
+  $('div.devicelist').hide()
   mopidy_client =  mopidy;
   setMopidyEvents(mopidy_client)
   if (masterSocketMode == "none") {
